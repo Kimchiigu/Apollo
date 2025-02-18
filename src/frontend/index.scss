@@ -3,60 +3,62 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @layer base {
   :root {
-    --color-1: 0 100% 63%;
-    --color-2: 270 100% 63%;
-    --color-3: 210 100% 63%;
-    --color-4: 195 100% 63%;
-    --color-5: 90 100% 63%;
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
-    --primary: 205 100% 67.1%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 210 40% 98%;
-    --ring: 215 20.2% 65.1%;
+    --color-1: 0 0% 70%; /* Grayish */
+    --color-2: 0 0% 50%; /* Dark Gray */
+    --color-3: 0 0% 85%; /* Light Gray */
+    --color-4: 0 0% 95%; /* Very Light Gray */
+    --color-5: 0 0% 40%; /* Deep Gray */
+    --background: 0 0% 96%; /* Soft Grayish White */
+    --foreground: 0 0% 20%; /* Dark Gray for Text */
+    --muted: 0 0% 90%; /* Muted Light Gray */
+    --muted-foreground: 0 0% 50%; /* Muted Text Gray */
+    --popover: 0 0% 98%; /* Almost White */
+    --popover-foreground: 0 0% 15%; /* Dark Foreground */
+    --border: 0 0% 80%; /* Medium Gray */
+    --input: 0 0% 80%; /* Same as Border */
+    --card: 0 0% 98%; /* Soft White */
+    --card-foreground: 0 0% 20%; /* Dark Text */
+    --primary: 0 0% 100%; /* White */
+    --primary-foreground: 0 0% 10%; /* Darker for Contrast */
+    --secondary: 0 0% 85%; /* Light Gray */
+    --secondary-foreground: 0 0% 20%; /* Text on Secondary */
+    --accent: 0 0% 90%; /* Slightly Darker than Secondary */
+    --accent-foreground: 0 0% 20%; /* Darker for Accent */
+    --destructive: 0 100% 50%; /* Red for Errors */
+    --destructive-foreground: 0 0% 100%; /* White for Contrast */
+    --ring: 0 0% 60%; /* Medium Gray */
     --radius: 0.5rem;
   }
+
   .dark {
-    --color-1: 0 100% 63%;
-    --color-2: 270 100% 63%;
-    --color-3: 210 100% 63%;
-    --color-4: 195 100% 63%;
-    --color-5: 90 100% 63%;
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 210 40% 98%;
-    --ring: 215 20.2% 65.1%;
+    --color-1: 217 71% 53%; /* Discord blue #7289da */
+    --color-2: 210 11% 71%; /* Muted blue-gray #99aab5 */
+    --color-3: 210 10% 23%; /* Dark gray #2c2f33 */
+    --color-4: 210 11% 15%; /* Darker gray #23272a */
+    --color-5: 0 0% 100%; /* White text #ffffff */
+    --background: 210 11% 15%; /* Main dark background */
+    --foreground: 0 0% 100%; /* White text for contrast */
+    --muted: 210 10% 23%; /* Muted gray */
+    --muted-foreground: 210 11% 71%; /* Light gray text */
+    --popover: 210 10% 23%; /* Popover background */
+    --popover-foreground: 0 0% 100%; /* Popover text */
+    --border: 210 10% 23%; /* Border color */
+    --input: 210 10% 23%; /* Input field */
+    --card: 210 11% 15%; /* Card background */
+    --card-foreground: 0 0% 100%; /* Card text */
+    --primary: 217 71% 53%; /* Primary color */
+    --primary-foreground: 0 0% 100%; /* Primary text */
+    --secondary: 210 10% 23%; /* Secondary background */
+    --secondary-foreground: 0 0% 100%; /* Secondary text */
+    --accent: 217 71% 53%; /* Accent color */
+    --accent-foreground: 0 0% 100%; /* Accent text */
+    --destructive: 0 85% 50%; /* Red for warnings */
+    --destructive-foreground: 0 0% 100%; /* White warning text */
+    --ring: 210 11% 71%; /* Highlight color */
     --radius: 0.5rem;
   }
 }

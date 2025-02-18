@@ -5,6 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
         pixel: ['Pixelify Sans', 'sans-serif'],
       },
       keyframes: {
