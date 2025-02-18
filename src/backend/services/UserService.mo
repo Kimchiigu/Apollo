@@ -5,9 +5,6 @@ import Nat "mo:base/Nat";
 import TrieMap "mo:base/TrieMap";
 import Result "mo:base/Result";
 import Bool "mo:base/Bool";
-import Array "mo:base/Array";
-import Nat64 "mo:base/Nat64";
-import Blob "mo:base/Blob";
 
 actor {
    // Model
@@ -100,78 +97,6 @@ actor {
          };
          case (null) {
             return false;
-         };
-      };
-   };
-
-   // Fish
-   public query func getFishCollections(userId : Principal) : async Result.Result<[Text], Text> {
-      let user = users.get(userId);
-
-      switch (user) {
-         case (?user) {
-            if (user.fishes.size() == 0){
-               return #err("No Fish")
-            } else {
-               return #ok(user.fishes)
-            }
-         };
-         case (null) {
-            return #err("User not found");
-         }
-      }
-   };
-
-   public shared func addFishToUser(userId : Principal, fishId : Text) : async Result.Result<Text, Text> {
-      let userOpt = users.get(userId);
-
-      switch (userOpt) {
-         case (?user) {
-            let updatedUser : User = {
-               internet_identity = user.internet_identity;
-               name = user.name;
-               email = user.email;
-               dob = user.dob;
-               timestamp = user.timestamp;
-               money = user.money;
-               fishes = Array.append(user.fishes, [fishId]);
-            };
-
-            users.put(userId, updatedUser);
-            return #ok("Fish added successfully!");
-         };
-         case (null) {
-            return #err("User not found!");
-         };
-      };
-   };
-
-   public shared func deleteFishFromUser(userId : Principal, fishId : Text) : async Result.Result<Text, Text> {
-      let userOpt = users.get(userId);
-
-      switch (userOpt) {
-         case (?user) {
-            let newFishes = Array.filter<Text>(user.fishes, func(f) { f != fishId });
-
-            if (user.fishes.size() == newFishes.size()) {
-               return #err("Fish not found in user's collection!");
-            };
-
-            let updatedUser : User = {
-               internet_identity = user.internet_identity;
-               name = user.name;
-               email = user.email;
-               dob = user.dob;
-               timestamp = user.timestamp;
-               money = user.money;
-               fishes = newFishes;
-            };
-
-            users.put(userId, updatedUser);
-            return #ok("Fish successfully removed!");
-         };
-         case (null) {
-            return #err("User not found!");
          };
       };
    };

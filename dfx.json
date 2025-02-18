@@ -4,19 +4,33 @@
       "type": "pull",
       "id": "rdmx6-jaaaa-aaaaa-aaadq-cai"
     },
-    "backend_user": {
+    "backend_service_user": {
       "type": "motoko",
-      "main": "src/backend/user-canister/main.mo"
+      "main": "src/backend/services/userservice.mo"
     },
-    "frontend": {
+    "backend_service_transaction": {
+      "dependencies": ["icp_ledger_canister"],
+      "type": "motoko",
+      "main": "src/backend/services/transactionservice.mo"
+    },
+    "backend_service_chat": {
       "dependencies": ["backend_user"],
-      "type": "assets",
-      "source": ["src/frontend/dist"]
+      "type": "motoko",
+      "main": "src/backend/services/chatservice.mo"
+    },
+    "backend_util": {
+      "type": "motoko",
+      "main": "src/backend/utils/util.mo"
     },
     "icp_ledger_canister": {
       "type": "custom",
       "candid": "icp_ledger.did",
       "wasm": "https://download.dfinity.systems/ic/5d202894864f4db4a5a46f44422aebc80c3d321b/canisters/ledger-canister.wasm.gz"
+    },
+    "frontend": {
+      "dependencies": ["backend_user"],
+      "type": "assets",
+      "source": ["src/frontend/dist"]
     }
   },
   "defaults": {
