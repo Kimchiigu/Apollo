@@ -32,9 +32,9 @@ const LoadingAnimation: React.FC<LoadingAnimationProps> = ({ children }) => {
             } transition-all duration-1000`}
           >
             <img
-              src="https://res.cloudinary.com/dxcn5osfu/image/upload/f_auto,q_auto/v1/Triton/Website/vn8tihpsu21ozfpqj1c8"
+              src="https://res.cloudinary.com/dqvlnzw9f/image/upload/f_auto,q_auto/v1/Apollo/hop75hr6fvtjfoisbrtm"
               alt="Logo"
-              className="h-24 w-24"
+              className="h-48 w-48"
             />
           </div>
         </div>

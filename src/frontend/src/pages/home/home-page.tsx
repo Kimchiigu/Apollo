@@ -12,7 +12,9 @@ export default function HomePage() {
     const fetchUsername = async () => {
       if (identity) {
         try {
-          const name = await backend_service_user.getName(identity.getPrincipal());
+          const name = await backend_service_user.getName(
+            identity.getPrincipal(),
+          );
           setUsername(name);
         } catch (error) {
           console.error('Error fetching username:', error);
