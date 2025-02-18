@@ -9,7 +9,6 @@ actor ChatService {
     /// Structure to represent a message
     type Message = {
         sender: Principal;
-        receiver: Principal;
         content: Text;
         timestamp: Time.Time;
     };
@@ -20,11 +19,17 @@ actor ChatService {
         principal: Principal;
     };
 
-    /// List to store registered users (Explicit Type Declaration ✅)
+    /// Structure for chat session
+    type Session = {
+        name: Text;
+        messages: List.List<Message>;
+    };
+
+    /// List to store registered users
     stable var users : List.List<User> = List.nil<User>();
 
-    /// List to store chat messages (Explicit Type Declaration ✅)
-    stable var messages : List.List<Message> = List.nil<Message>();
+    /// List to store chat sessions
+    stable var sessions : List.List<Session> = List.nil<Session>();
 
     /// Registers a user with a username
     public shared ({ caller }) func registerUser(username: Text) : async Text {
@@ -38,49 +43,50 @@ actor ChatService {
         return "User " # username # " registered successfully!";
     };
 
-    /// Sends a message to another user
-    public shared ({ caller }) func sendMessage(receiver: Principal, content: Text) : async Text {
-        let senderExists : ?User = List.find<User>(users, func(u) = u.principal == caller);
-        let receiverExists : ?User = List.find<User>(users, func(u) = u.principal == receiver);
+    /// Creates a chat session
+    public shared func createSession(name: Text) : async Text {
+        let sessionExists = List.find<Session>(sessions, func(s) = s.name == name);
+        if (Option.isSome(sessionExists)) {
+            return "Session already exists!";
+        };
+        sessions := List.push<Session>({ name = name; messages = List.nil<Message>() }, sessions);
+        return "Session " # name # " created successfully!";
+    };
+
+    /// Retrieves all available chat sessions
+    public query func getSessions() : async [Text] {
+        return List.toArray<Text>(List.map<Session, Text>(sessions, func(s) = s.name));
+    };
+
+    /// Sends a message to a session
+    public shared ({ caller }) func sendMessage(sessionName: Text, content: Text) : async Text {
+        let sessionIndex = List.find<Session>(sessions, func(s) = s.name == sessionName);
         
-        if (Option.isNull(senderExists)) {
-            return "Sender is not registered!";
+        switch (sessionIndex) {
+            case (?session) {
+                let newMessage: Message = {
+                    sender = caller;
+                    content = content;
+                    timestamp = Time.now();
+                };
+                let updatedSession: Session = { name = session.name; messages = List.push<Message>(newMessage, session.messages) };
+                sessions := List.map<Session, Session>(sessions, func(s) = if (s.name == sessionName) updatedSession else s);
+                return "Message sent!";
+            };
+            case null {
+                return "Session not found!";
+            };
         };
-        if (Option.isNull(receiverExists)) {
-            return "Receiver is not registered!";
-        };
-
-        let newMessage: Message = {
-            sender = caller;
-            receiver = receiver;
-            content = content;
-            timestamp = Time.now();
-        };
-
-        messages := List.push<Message>(newMessage, messages);
-        return "Message sent!";
     };
 
-    /// Retrieves chat messages between the caller and another user
-    public shared ({ caller }) func getMessagesWith(user: Principal) : async [Message] {
-        let chatHistory : List.List<Message> = List.filter<Message>(messages, func(m) = 
-            (m.sender == caller and m.receiver == user) or 
-            (m.sender == user and m.receiver == caller)
-        );
-
-        return List.toArray<Message>(chatHistory);
-    };
-
-    /// Retrieves all messages sent by the caller
-    public shared ({ caller }) func getSentMessages() : async [Message] {
-        let sentMessages : List.List<Message> = List.filter<Message>(messages, func(m) = m.sender == caller);
-        return List.toArray<Message>(sentMessages);
-    };
-
-    /// Retrieves all messages received by the caller
-    public shared ({ caller }) func getReceivedMessages() : async [Message] {
-        let receivedMessages : List.List<Message> = List.filter<Message>(messages, func(m) = m.receiver == caller);
-        return List.toArray<Message>(receivedMessages);
+    /// Retrieves all messages from a session
+    public shared func getMessages(sessionName: Text) : async [Message] {
+        let sessionIndex = List.find<Session>(sessions, func(s) = s.name == sessionName);
+        
+        switch (sessionIndex) {
+            case (?session) { return List.toArray<Message>(session.messages); };
+            case null { return []; };
+        };
     };
 
     /// Retrieves all registered users
