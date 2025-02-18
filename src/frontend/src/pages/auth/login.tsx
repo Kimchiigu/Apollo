@@ -88,7 +88,10 @@ export default function Login() {
 
         if (existingUser) {
           form.setValue('name', await backend_service_user.getName(principal));
-          form.setValue('email', await backend_service_user.getEmail(principal));
+          form.setValue(
+            'email',
+            await backend_service_user.getEmail(principal),
+          );
         }
       }
     };

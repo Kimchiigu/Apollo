@@ -1,12 +1,11 @@
-import { useNavigate } from 'react-router-dom';
-import { Button } from '../../components/ui/button';
+import LandingMain from '../../components/partials/landing-main';
+import Navbar from '../../components/partials/navbar';
 
 export default function LandingPage() {
-  const navigate = useNavigate();
-
   return (
-    <div>
-      <div></div>
+    <div className="w-screen h-screen bg-background">
+      <Navbar></Navbar>
+      <LandingMain></LandingMain>
     </div>
   );
 }

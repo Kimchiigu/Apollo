@@ -7,61 +7,62 @@
 
 @layer base {
   :root {
-    --color-1: 0 0% 70%; /* Grayish */
-    --color-2: 0 0% 50%; /* Dark Gray */
-    --color-3: 0 0% 85%; /* Light Gray */
-    --color-4: 0 0% 95%; /* Very Light Gray */
-    --color-5: 0 0% 40%; /* Deep Gray */
-    --background: 0 0% 96%; /* Soft Grayish White */
-    --foreground: 0 0% 20%; /* Dark Gray for Text */
-    --muted: 0 0% 90%; /* Muted Light Gray */
-    --muted-foreground: 0 0% 50%; /* Muted Text Gray */
-    --popover: 0 0% 98%; /* Almost White */
-    --popover-foreground: 0 0% 15%; /* Dark Foreground */
-    --border: 0 0% 80%; /* Medium Gray */
-    --input: 0 0% 80%; /* Same as Border */
-    --card: 0 0% 98%; /* Soft White */
-    --card-foreground: 0 0% 20%; /* Dark Text */
-    --primary: 0 0% 100%; /* White */
-    --primary-foreground: 0 0% 10%; /* Darker for Contrast */
-    --secondary: 0 0% 85%; /* Light Gray */
-    --secondary-foreground: 0 0% 20%; /* Text on Secondary */
-    --accent: 0 0% 90%; /* Slightly Darker than Secondary */
-    --accent-foreground: 0 0% 20%; /* Darker for Accent */
-    --destructive: 0 100% 50%; /* Red for Errors */
-    --destructive-foreground: 0 0% 100%; /* White for Contrast */
-    --ring: 0 0% 60%; /* Medium Gray */
+    --color-1: 231 89% 64%; /* Blue #5865f2 */
+    --color-2: 231 83% 50%; /* Darker Blue */
+    --color-3: 231 100% 85%; /* Lighter Blue */
+    --color-4: 207 100% 99%; /* Lighter Background */
+    --color-5: 231 90% 40%; /* Deep Blue */
+    --background: 0 0% 100%; /* White Background */
+    --foreground: 210 40% 0%; /* Darker Blue for Text */
+    --muted: 231 100% 95%; /* Very Light Blue */
+    --muted-foreground: 231 70% 50%; /* Muted Blue */
+    --popover: 0 0% 98%; /* Soft White */
+    --popover-foreground: 231 83% 50%; /* Blue Foreground */
+    --border: 231 80% 70%; /* Soft Blue Border */
+    --input: 231 70% 60%; /* Input Field Blue */
+    --card: 231 95% 98%; /* Light Blue Card */
+    --card-foreground: 231 83% 50%; /* Blue Text */
+    --primary: 231 89% 64%; /* Primary Blue */
+    --primary-foreground: 0 0% 100%; /* White Text */
+    --secondary: 231 100% 85%; /* Lighter Blue */
+    --secondary-foreground: 231 83% 50%; /* Blue Foreground */
+    --accent: 231 90% 75%; /* Accent Blue */
+    --accent-foreground: 231 83% 50%; /* Blue Text */
+    --destructive: 0 85% 50%; /* Red for Warnings */
+    --destructive-foreground: 0 0% 100%; /* White Text */
+    --ring: 231 89% 64%; /* Highlight Blue */
     --radius: 0.5rem;
   }
 
   .dark {
-    --color-1: 217 71% 53%; /* Discord blue #7289da */
-    --color-2: 210 11% 71%; /* Muted blue-gray #99aab5 */
-    --color-3: 210 10% 23%; /* Dark gray #2c2f33 */
-    --color-4: 210 11% 15%; /* Darker gray #23272a */
-    --color-5: 0 0% 100%; /* White text #ffffff */
-    --background: 210 11% 15%; /* Main dark background */
-    --foreground: 0 0% 100%; /* White text for contrast */
-    --muted: 210 10% 23%; /* Muted gray */
-    --muted-foreground: 210 11% 71%; /* Light gray text */
-    --popover: 210 10% 23%; /* Popover background */
-    --popover-foreground: 0 0% 100%; /* Popover text */
-    --border: 210 10% 23%; /* Border color */
-    --input: 210 10% 23%; /* Input field */
-    --card: 210 11% 15%; /* Card background */
-    --card-foreground: 0 0% 100%; /* Card text */
-    --primary: 217 71% 53%; /* Primary color */
-    --primary-foreground: 0 0% 100%; /* Primary text */
-    --secondary: 210 10% 23%; /* Secondary background */
-    --secondary-foreground: 0 0% 100%; /* Secondary text */
-    --accent: 217 71% 53%; /* Accent color */
-    --accent-foreground: 0 0% 100%; /* Accent text */
-    --destructive: 0 85% 50%; /* Red for warnings */
-    --destructive-foreground: 0 0% 100%; /* White warning text */
-    --ring: 210 11% 71%; /* Highlight color */
+    --color-1: 231 89% 64%; /* Primary Blue */
+    --color-2: 231 83% 50%; /* Darker Blue */
+    --color-3: 231 100% 85%; /* Lighter Blue */
+    --color-4: 231 90% 10%; /* Dark Background */
+    --color-5: 231 90% 40%; /* Deep Blue */
+    --background: 231 90% 10%; /* Dark Blue Background */
+    --foreground: 0 0% 100%; /* White Text */
+    --muted: 231 90% 20%; /* Muted Blue */
+    --muted-foreground: 231 70% 80%; /* Lighter Blue Text */
+    --popover: 231 83% 15%; /* Dark Popover */
+    --popover-foreground: 0 0% 100%; /* White */
+    --border: 231 80% 30%; /* Soft Blue Border */
+    --input: 231 70% 40%; /* Input Field Blue */
+    --card: 231 83% 20%; /* Card Background */
+    --card-foreground: 0 0% 100%; /* White Text */
+    --primary: 231 89% 64%; /* Primary Blue */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 231 83% 50%; /* Secondary Blue */
+    --secondary-foreground: 0 0% 100%; /* White */
+    --accent: 231 90% 75%; /* Accent Blue */
+    --accent-foreground: 0 0% 100%; /* White */
+    --destructive: 0 85% 50%; /* Red for Errors */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --ring: 231 89% 64%; /* Blue Highlight */
     --radius: 0.5rem;
   }
 }
+
 @layer base {
   * {
     @apply border-border;
