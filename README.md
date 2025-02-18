@@ -108,22 +108,22 @@ To ensure the DFX environment is active, run the following command:
    dfx generate backend_service_chat
    ```
 
-5. Set up **Frontend**:
+6. Set up **Frontend**:
 
    ```sh
    npm run build
    dfx canister create frontend
    ```
+
    You need to run `npm run build` to generate a dist folder that will be used when `dfx deploy`
 
-
-6. Once everything is set up, deploy the application:
+7. Once everything is set up, deploy the application:
 
    ```sh
    dfx deploy
    ```
 
-7. **(COMING SOON)** You can bypass all of the setups with the command:
+8. **(COMING SOON)** You can bypass all of the setups with the command:
    ```sh
    npm run finsetup
    ```
@@ -167,17 +167,17 @@ To ensure the DFX environment is active, run the following command:
    ```sh
    dfx identity new minter
    dfx identity use minter
-   export MINTER_ACCOUNT_ID=$(dfx identity get-principal)
+   export MINTER_ACCOUNT_ID=$(dfx ledger account-id)
    ```
 
-2. Create deployment account (use default)
+3. Create deployment account (use default)
 
    ```sh
    dfx identity use default
    DEFAULT_ACCOUNT_ID=$(dfx ledger account-id)
    ```
 
-3. Deploy ICP Ledger Canister (copy command ini di deploy_icp_ledger.sh aja)
+4. Deploy ICP Ledger Canister (copy command ini di deploy_icp_ledger.sh aja)
 
    ```sh
    dfx deploy --specified-id ryjl3-tyaaa-aaaaa-aaaba-cai icp_ledger_canister --argument "
@@ -202,7 +202,6 @@ To ensure the DFX environment is active, run the following command:
    })
    "
    ```
- 
 
 ## (KITA GANTI ICP LEDGER) ICRC-1 Ledger Setup
 
