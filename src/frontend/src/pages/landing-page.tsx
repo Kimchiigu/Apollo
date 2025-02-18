@@ -9,7 +9,7 @@ export default function LandingPage() {
       <div className="absolute inset-0 w-full h-full -z-10">
         <img
           src="https://res.cloudinary.com/dxcn5osfu/image/upload/f_auto,q_auto/v1/Triton/Website/cjfbhsmvgmeu7mndvmuu"
-          alt="Triton Background"
+          alt="Apollo Background"
           className="w-full h-full object-cover"
         />
       </div>

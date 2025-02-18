@@ -1,10 +1,7 @@
-import { backend_user } from '@/declarations/backend_user';
+import { backend_service_user } from '@/declarations/backend_service_user';
 import { useAuth } from '../../hooks/use-auth-client';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PomodoroLayout from '../../components/ui/pomodoro-layout';
-import Canvas from '../../components/ui/canvas';
-import UIButtons from '../../components/ui/ui-buttons';
 
 export default function HomePage() {
   const { identity } = useAuth();
@@ -15,7 +12,7 @@ export default function HomePage() {
     const fetchUsername = async () => {
       if (identity) {
         try {
-          const name = await backend_user.getName(identity.getPrincipal());
+          const name = await backend_service_user.getName(identity.getPrincipal());
           setUsername(name);
         } catch (error) {
           console.error('Error fetching username:', error);

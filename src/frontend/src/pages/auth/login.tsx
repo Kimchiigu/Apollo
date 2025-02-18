@@ -26,7 +26,7 @@ import { CalendarIcon } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { format } from 'date-fns';
 
-import { backend_user } from '@/declarations/backend_user';
+import { backend_service_user } from '@/declarations/backend_service_user';
 import { useNavigate } from 'react-router-dom';
 
 const FormSchema = z.object({
@@ -55,10 +55,10 @@ export default function Login() {
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     if (identity) {
       const principal = identity.getPrincipal();
-      const existingUser = await backend_user.getName(principal);
+      const existingUser = await backend_service_user.getName(principal);
 
       if (existingUser != 'Stranger') {
-        await backend_user.updateUser(
+        await backend_service_user.updateUser(
           principal,
           data.name,
           data.email,
@@ -66,7 +66,7 @@ export default function Login() {
         );
         toast({ title: 'User updated successfully.' });
       } else {
-        await backend_user.register(
+        await backend_service_user.register(
           principal,
           data.name,
           data.email,
@@ -84,11 +84,11 @@ export default function Login() {
     const fetchUserDetails = async () => {
       if (identity) {
         const principal = identity.getPrincipal();
-        const existingUser = await backend_user.getUserById(principal);
+        const existingUser = await backend_service_user.getUserById(principal);
 
         if (existingUser) {
-          form.setValue('name', await backend_user.getName(principal));
-          form.setValue('email', await backend_user.getEmail(principal));
+          form.setValue('name', await backend_service_user.getName(principal));
+          form.setValue('email', await backend_service_user.getEmail(principal));
         }
       }
     };

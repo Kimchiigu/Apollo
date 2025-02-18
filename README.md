@@ -87,14 +87,28 @@ To ensure the DFX environment is active, run the following command:
 
    If there exist a `deps` folder after git clone, make sure to delete the folder to create a new one with the commands above due to a different download hash
 
-3. Set up **Backend User**:
+3. Set up **Backend Service - User**:
 
    ```sh
-   dfx canister create backend_user
-   dfx generate backend_user
+   dfx canister create backend_service_user
+   dfx generate backend_service_user
    ```
 
-4. Set up **Frontend**:
+4. Set up **Backend Service - Transaction**:
+
+   ```sh
+   dfx canister create backend_service_transaction
+   dfx generate backend_service_transaction
+   ```
+
+5. Set up **Backend Service - Chat**:
+
+   ```sh
+   dfx canister create backend_service_chat
+   dfx generate backend_service_chat
+   ```
+
+5. Set up **Frontend**:
 
    ```sh
    npm run build
@@ -103,13 +117,13 @@ To ensure the DFX environment is active, run the following command:
    You need to run `npm run build` to generate a dist folder that will be used when `dfx deploy`
 
 
-5. Once everything is set up, deploy the application:
+6. Once everything is set up, deploy the application:
 
    ```sh
    dfx deploy
    ```
 
-6. **(COMING SOON)** You can bypass all of the setups with the command:
+7. **(COMING SOON)** You can bypass all of the setups with the command:
    ```sh
    npm run finsetup
    ```
@@ -163,7 +177,7 @@ To ensure the DFX environment is active, run the following command:
    DEFAULT_ACCOUNT_ID=$(dfx ledger account-id)
    ```
 
-3. Deploy ICP Ledger Canister
+3. Deploy ICP Ledger Canister (copy command ini di deploy_icp_ledger.sh aja)
 
    ```sh
    dfx deploy --specified-id ryjl3-tyaaa-aaaaa-aaaba-cai icp_ledger_canister --argument "
