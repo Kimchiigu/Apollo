@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Larry Machigo",
+    "avatar": "/placeholder.svg",
+    "status": "online",
+    "messages": [
+      {
+        "id": 1,
+        "content": "adada",
+        "sender": "user",
+        "timestamp": "2024-02-19T12:00:00Z",
+        "read": true
+      },
+      {
+        "id": 2,
+        "content": "adadadadada",
+        "sender": "other",
+        "timestamp": "2024-02-19T11:59:00Z",
+        "read": true
+      },
+      {
+        "id": 3,
+        "content": "dadadad",
+        "sender": "user",
+        "timestamp": "2024-02-19T11:58:00Z",
+        "read": true
+      },
+      {
+        "id": 4,
+        "content": "Hey",
+        "sender": "other",
+        "timestamp": "2024-02-19T11:57:00Z",
+        "read": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Natalie Nora",
+    "avatar": "/placeholder.svg",
+    "status": "typing",
+    "messages": [
+      {
+        "id": 1,
+        "content": "The design looks amazing! Great work on the color scheme.",
+        "sender": "other",
+        "timestamp": "2024-02-19T11:55:00Z",
+        "read": false
+      },
+      {
+        "id": 2,
+        "content": "Here's the latest version of the homepage design.",
+        "sender": "user",
+        "timestamp": "2024-02-19T11:54:00Z",
+        "read": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Design Team",
+    "avatar": "/placeholder.svg",
+    "status": "offline",
+    "messages": [
+      {
+        "id": 1,
+        "content": "Meeting scheduled for tomorrow at 10 AM",
+        "sender": "other",
+        "timestamp": "2024-02-19T09:00:00Z",
+        "read": true
+      },
+      {
+        "id": 2,
+        "content": "Should we discuss the new brand guidelines?",
+        "sender": "user",
+        "timestamp": "2024-02-19T08:45:00Z",
+        "read": true
+      }
+    ]
+  }
+]

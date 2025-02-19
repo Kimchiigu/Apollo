@@ -1,6 +1,5 @@
 import { Label } from '../ui/label';
 import { motion } from 'framer-motion';
-import LandingCarousel from './landing-carousel';
 import { Button } from '../ui/button';
 import {
   ArrowRight,
@@ -44,7 +43,7 @@ export default function LandingMain() {
             </Button>
             <Button
               variant={'outline'}
-              className="w-full sm:w-auto text-primary font-poppins lg:text-xl lg:p-6 border"
+              className="w-full sm:w-auto text-primary font-poppins lg:text-xl lg:p-6"
             >
               Learn More
             </Button>

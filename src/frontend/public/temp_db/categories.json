@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Batuk, Pilek & Flu",
+    "image": "https://via.placeholder.com/40",
+    "subcategories": [
+      "Batuk & Flu",
+      "Balsem & Minyak Esensial",
+      "Perawatan Herbal",
+      "Nasal Spray & Dekongestan",
+      "Untuk Bayi & Anak"
+    ]
+  },
+  {
+    "name": "Masalah Pencernaan",
+    "image": "https://via.placeholder.com/40",
+    "subcategories": [
+      "Asam Lambung & GERD",
+      "Mual & Muntah",
+      "Infeksi Cacing",
+      "Diare",
+      "Sembelit & Wasir"
+    ]
+  },
+  {
+    "name": "Masalah THT",
+    "image": "https://via.placeholder.com/40",
+    "subcategories": [
+      "Sariawan & Herpes Mulut",
+      "Obat Tetes Telinga",
+      "Obat Kumur Antiseptik",
+      "Kebersihan Hidung",
+      "Pilek & Tenggorokan"
+    ]
+  },
+  {
+    "name": "Demam & Nyeri",
+    "image": "https://via.placeholder.com/40",
+    "subcategories": [
+      "Pereda Demam & Nyeri",
+      "Terapi Panas & Dingin",
+      "Untuk Bayi & Anak",
+      "Perawatan Herbal"
+    ]
+  },
+  {
+    "name": "Alergi",
+    "image": "https://via.placeholder.com/40",
+    "subcategories": ["Obat Alergi", "Pereda Gatal"]
+  },
+  {
+    "name": "Masalah Mata",
+    "image": "https://via.placeholder.com/40",
+    "subcategories": ["Gatal, Kering & Merah", "Lainnya"]
+  },
+  {
+    "name": "Kondisi Kulit",
+    "image": "https://via.placeholder.com/40",
+    "subcategories": [
+      "Jerawat",
+      "Infeksi Kulit",
+      "Dermatitis & Eksim",
+      "Lainnya"
+    ]
+  },
+  {
+    "name": "Infeksi",
+    "image": "https://via.placeholder.com/40",
+    "subcategories": ["Antibiotik", "Antivirus", "Antijamur"]
+  },
+  {
+    "name": "Tulang & Sendi Sakit",
+    "image": "https://via.placeholder.com/40",
+    "subcategories": ["Tulang & Osteoporosis", "Asam Urat & Radang Sendi"]
+  },
+  {
+    "name": "Kesuburan & Lainnya",
+    "image": "https://via.placeholder.com/40",
+    "subcategories": ["Kandung Kemih & Ginjal", "Pria"]
+  }
+]

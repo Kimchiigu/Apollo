@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import ProductCard from '../component/ProductCard/ProductCard';
 
 interface Product {
@@ -13,67 +14,35 @@ interface ProductGridProps {
   searchTerm: string;
 }
 
-const allProducts: Product[] = [
-  {
-    name: 'Obeslim 10 Kapsul',
-    image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRG9BXTX7q8I9C66UGUfrfKYNPE1kst4HRXA&s',
-    priceRange: [134300, 142100],
-    category: 'Obat',
-    description: 'Diet medicine for weight management',
-  },
-  {
-    name: 'Vistat 120 mg 10 Kapsul',
-    image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0dGyWqS56WbLd8e3Lc59-CWwqt2rY2KUgIg&s',
-    priceRange: [121900, 121900],
-    category: 'Obat',
-    description: 'Treatment for various conditions',
-  },
-  {
-    name: 'Vitamin C 1000mg',
-    image:
-      'https://res-4.cloudinary.com/dk0z4ums3/image/upload/c_scale,h_500,w_500/v1/production/pharmacy/products/1660122001_60f7f5ba1ef1133130010a40',
-    priceRange: [50000, 50000],
-    category: 'Suplemen',
-    description: 'High dose vitamin C supplement',
-  },
-  {
-    name: 'Nutrisi Diet Pack',
-    image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsGXubEJi2CA6QRbgMkjvQPeej-p05RFrdVQ&s',
-    priceRange: [250000, 250000],
-    category: 'Nutrisi & Detoks',
-    description: 'Complete nutrition pack for diet program',
-  },
-  {
-    name: 'Redoxon Double Action',
-    image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnLeIJMqS3HJYaDfc5sl84Ju3HV1QYc7h2nA&s',
-    priceRange: [45000, 45000],
-    category: 'Suplemen',
-    description: 'Vitamin C and Zinc supplement',
-  },
-  {
-    name: 'Covid-19 Home Test Kit',
-    image:
-      'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQVaVlZ8wchKHBuFzjbAc3NdMdHPSmdmqo8VnB7Y2bfaYKxcCK3wV0UaDbKYehhGWmoltweua5HmynjKE1lPldBniGXBNuRkdzkNqm_msN8WHciaiHT8mr9GA&usqp=CAE',
-    priceRange: [75000, 75000],
-    category: 'Alat Penunjang',
-    description: 'Rapid test kit for Covid-19',
-  },
-];
-
 export default function MedicineGrid({
   category,
   searchTerm,
 }: ProductGridProps) {
-  const filteredProducts = allProducts.filter((product) => {
-    // Category filter
+  const [products, setProducts] = useState<Product[]>([]);
+
+  //TODO
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('/public/temp_db/medicine.json');
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
+
+        const data: Product[] = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error('Error loading products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  const filteredProducts = products.filter((product) => {
     const categoryMatch =
       category === 'Weight Management' ? true : product.category === category;
 
-    // Search filter - check both name and description
     const search = searchTerm.toLowerCase();
     const searchMatch =
       search === '' ||
@@ -90,7 +59,7 @@ export default function MedicineGrid({
           <img
             src="https://cdn-icons-png.flaticon.com/512/483/483462.png"
             alt="Medicine icon"
-            className="w-6 h-6 text-white"
+            className="w-6 h-6"
           />
         </div>
         <h2 className="text-xl font-semibold font-poppins">
@@ -120,11 +89,11 @@ export default function MedicineGrid({
             <>
               No products found matching "{searchTerm}" in {category}
               <p className="text-sm mt-2">
-                Try different keywords or browse other categories
+                Try different keywords or browse other categories.
               </p>
             </>
           ) : (
-            'No products found in this category'
+            'No products found in this category.'
           )}
         </div>
       )}
