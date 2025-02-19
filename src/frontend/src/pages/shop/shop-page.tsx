@@ -5,6 +5,12 @@ import {
   AvatarFallback,
   AvatarImage,
 } from '../../components/ui/avatar';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '../../components/ui/accordion';
 
 interface Category {
   name: string;
@@ -59,48 +65,49 @@ export default function ShopPage() {
                   <h2 className="text-lg font-semibold">{category.name}</h2>
                 </div>
 
-              {/* Subcategory 2 column */}
-              <div className="grid grid-cols-2 gap-4">
-                {category.subcategories.map((sub, subIndex) => (
-                  <div
-                    key={subIndex}
-                    className="text-gray-600 hover:text-gray-900 cursor-pointer"
-                  >
-                    {sub}
-                  </div>
-                ))}
+                {/* Subcategory 2 column */}
+                <div className="grid grid-cols-2 gap-4">
+                  {category.subcategories.map((sub, subIndex) => (
+                    <div
+                      key={subIndex}
+                      className="text-gray-600 hover:text-gray-900 cursor-pointer"
+                    >
+                      {sub}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Mobile View with Accordion */}
-        <div className="lg:hidden">
-          <Accordion type="single" collapsible>
-            {categories.map((category, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="flex items-center space-x-3">
-                  <Avatar>
-                    <AvatarImage src={category.image} />
-                    <AvatarFallback>{category.name.charAt(0)}</AvatarFallback>
-                  </Avatar>
-                  <span>{category.name}</span>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="grid grid-cols-2 gap-4">
-                    {category.subcategories.map((sub, subIndex) => (
-                      <div
-                        key={subIndex}
-                        className="text-gray-600 hover:text-gray-900 cursor-pointer"
-                      >
-                        {sub}
-                      </div>
-                    ))}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
             ))}
-          </Accordion>
+          </div>
+
+          {/* Mobile View with Accordion */}
+          <div className="lg:hidden">
+            <Accordion type="single" collapsible>
+              {categories.map((category, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="flex items-center space-x-3">
+                    <Avatar>
+                      <AvatarImage src={category.image} />
+                      <AvatarFallback>{category.name.charAt(0)}</AvatarFallback>
+                    </Avatar>
+                    <span>{category.name}</span>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="grid grid-cols-2 gap-4">
+                      {category.subcategories.map((sub, subIndex) => (
+                        <div
+                          key={subIndex}
+                          className="text-gray-600 hover:text-gray-900 cursor-pointer"
+                        >
+                          {sub}
+                        </div>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
       </div>
     </div>
