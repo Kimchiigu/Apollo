@@ -3,10 +3,12 @@ import { useAuth } from './src/hooks/use-auth-client';
 import AuthPage from './src/pages/auth/auth-page';
 import Logout from './src/pages/auth/logout';
 import HomePage from './src/pages/home/home-page';
-import ChatPage from './src/pages/demo/chat-page';
+import ChatPage from './src/pages/chat/chat-page';
 import TransactionPage from './src/pages/demo/transaction-page';
 import LandingPage from './src/pages/landing/landing-page';
 import MedicinePage from './src/pages/medicine/medicine-page';
+import ChatPageDemo from './src/pages/demo/chat-page-demo';
+import ShopPage from './src/pages/shop/shop-page';
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -29,8 +31,8 @@ function App() {
       element: <>{isAuthenticated ? <HomePage /> : <Logout />}</>,
     },
     {
-      path: '/chat',
-      element: <>{isAuthenticated ? <ChatPage /> : <Logout />}</>,
+      path: '/chatdemo',
+      element: <>{isAuthenticated ? <ChatPageDemo /> : <Logout />}</>,
     },
     {
       path: '/transaction',
@@ -39,6 +41,14 @@ function App() {
     {
       path: '/medicine',
       element: <MedicinePage />,
+    },
+    {
+      path: '/chat',
+      element: <ChatPage />,
+    },
+    {
+      path: '/shop',
+      element: <ShopPage />,
     },
   ];
 
