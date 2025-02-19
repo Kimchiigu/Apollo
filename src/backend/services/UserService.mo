@@ -270,6 +270,17 @@ actor UserService {
     // ========================
     // Helper Functions
     // ========================
+    public query func getName(userId: Principal) : async Text {
+      let user : ?User = users.get(userId);
+      switch (user) {
+         case (?user) {
+            return user.full_name;
+         };
+         case (null) {
+            return "Stranger";
+         };
+      };
+   };
 
     public query func getAllUsers() : async [User] {
       return Array.map<(Principal, User), User>(
