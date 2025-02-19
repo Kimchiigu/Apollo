@@ -1,5 +1,16 @@
 import Navbar from '../../components/partials/navbar';
-import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from '../../components/ui/avatar';
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+  } from "../../components/ui/accordion"
+  
 
 const categories = [
   {
