@@ -6,6 +6,7 @@ import HomePage from './src/pages/home/home-page';
 import ChatPage from './src/pages/demo/chat-page';
 import TransactionPage from './src/pages/demo/transaction-page';
 import LandingPage from './src/pages/landing/landing-page';
+import MedicinePage from './src/pages/medicine/medicine-page';
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -34,6 +35,10 @@ function App() {
     {
       path: '/transaction',
       element: <>{isAuthenticated ? <TransactionPage /> : <Logout />}</>,
+    },
+    {
+      path: '/medicine',
+      element: <MedicinePage />,
     },
   ];
 
