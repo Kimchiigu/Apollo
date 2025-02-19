@@ -36,7 +36,7 @@ const getUserActor = async () => {
   });
 };
 
-export default function ChatPage() {
+export default function ChatPageDemo() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState<string>('');
   const [session, setSession] = useState<string>('');

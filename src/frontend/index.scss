@@ -3,63 +3,124 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @layer base {
   :root {
-    --color-1: 0 100% 63%;
-    --color-2: 270 100% 63%;
-    --color-3: 210 100% 63%;
-    --color-4: 195 100% 63%;
-    --color-5: 90 100% 63%;
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
-    --primary: 205 100% 67.1%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 210 40% 98%;
-    --ring: 215 20.2% 65.1%;
+    --color-1: 0 0% 100%; /* WHITE */
+    --color-2: 0 0% 0%; /* BLACK */
+    --color-3: 0 0% 55%; /* GRAY */
+    --color-4: 174 42% 95%; /* Very Light Teal #edf7f5 */
+    --color-5: 231 60% 30%; /* Deep Blue #1c2d6b */
+
+    --background: 0 0% 100%; /* White Background */
+    --foreground: 222 47% 11%; /* Dark Blue for Text */
+
+    --muted: 210 40% 96%; /* Light Gray Blue */
+    --muted-foreground: 215 16% 47%; /* Muted Blue Gray */
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 222 47% 11%; /* Dark Blue */
+
+    --border: 214 32% 91%; /* Light Gray Border */
+    --input: 214 32% 91%; /* Light Gray Input */
+
+    --card: 0 0% 100%; /* White Card */
+    --card-foreground: 222 47% 11%; /* Dark Blue Text */
+
+    --primary: 231 89% 64%; /* Primary Blue #5865f2 */
+    --primary-foreground: 210 40% 98%; /* Very Light Blue Gray */
+
+    --secondary: 174 75% 40%; /* Teal #19a38c */
+    --secondary-foreground: 210 40% 98%; /* Very Light Blue Gray */
+
+    --accent: 201 96% 73%; /* Light Blue #a0d7f5 */
+    --accent-foreground: 222 47% 11%; /* Dark Blue */
+
+    --destructive: 0 84% 60%; /* Red */
+    --destructive-foreground: 210 40% 98%; /* Very Light Blue Gray */
+
+    --ring: 231 89% 64%; /* Primary Blue */
+
     --radius: 0.5rem;
   }
+
   .dark {
-    --color-1: 0 100% 63%;
-    --color-2: 270 100% 63%;
-    --color-3: 210 100% 63%;
-    --color-4: 195 100% 63%;
-    --color-5: 90 100% 63%;
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 210 40% 98%;
-    --ring: 215 20.2% 65.1%;
+    // --color-1: 231 89% 64%; /* Primary Blue #5865f2 */
+    // --color-2: 174 75% 40%; /* Teal #19a38c */
+    // --color-3: 201 96% 73%; /* Light Blue #a0d7f5 */
+    // --color-4: 174 42% 15%; /* Dark Teal #1a2e2b */
+    // --color-5: 231 60% 80%; /* Light Blue #a3b1e8 */
+
+    // --background: 222 47% 11%; /* Dark Blue Background */
+    // --foreground: 210 40% 98%; /* Very Light Blue Gray for Text */
+
+    // --muted: 217 33% 17%; /* Dark Blue Gray */
+    // --muted-foreground: 215 20% 65%; /* Light Blue Gray */
+
+    // --popover: 222 47% 11%; /* Dark Blue */
+    // --popover-foreground: 210 40% 98%; /* Very Light Blue Gray */
+
+    // --border: 217 33% 17%; /* Dark Blue Gray */
+    // --input: 217 33% 17%; /* Dark Blue Gray */
+
+    // --card: 222 47% 11%; /* Dark Blue */
+    // --card-foreground: 210 40% 98%; /* Very Light Blue Gray */
+
+    // --primary: 231 89% 64%; /* Primary Blue #5865f2 */
+    // --primary-foreground: 210 40% 98%; /* Very Light Blue Gray */
+
+    // --secondary: 174 75% 40%; /* Teal #19a38c */
+    // --secondary-foreground: 210 40% 98%; /* Very Light Blue Gray */
+
+    // --accent: 201 96% 73%; /* Light Blue #a0d7f5 */
+    // --accent-foreground: 222 47% 11%; /* Dark Blue */
+
+    // --destructive: 0 84% 60%; /* Red */
+    // --destructive-foreground: 210 40% 98%; /* Very Light Blue Gray */
+
+    // --ring: 231 89% 64%; /* Primary Blue */
+
+    // --radius: 0.5rem;
+    --color-1: 231 89% 64%; /* Primary Blue #5865f2 */
+    --color-2: 174 75% 40%; /* Teal #19a38c */
+    --color-3: 201 96% 73%; /* Light Blue #a0d7f5 */
+    --color-4: 174 42% 95%; /* Very Light Teal #edf7f5 */
+    --color-5: 231 60% 30%; /* Deep Blue #1c2d6b */
+
+    --background: 0 0% 100%; /* White Background */
+    --foreground: 222 47% 11%; /* Dark Blue for Text */
+
+    --muted: 210 40% 96%; /* Light Gray Blue */
+    --muted-foreground: 215 16% 47%; /* Muted Blue Gray */
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 222 47% 11%; /* Dark Blue */
+
+    --border: 214 32% 91%; /* Light Gray Border */
+    --input: 214 32% 91%; /* Light Gray Input */
+
+    --card: 0 0% 100%; /* White Card */
+    --card-foreground: 222 47% 11%; /* Dark Blue Text */
+
+    --primary: 231 89% 64%; /* Primary Blue #5865f2 */
+    --primary-foreground: 210 40% 98%; /* Very Light Blue Gray */
+
+    --secondary: 174 75% 40%; /* Teal #19a38c */
+    --secondary-foreground: 210 40% 98%; /* Very Light Blue Gray */
+
+    --accent: 201 96% 73%; /* Light Blue #a0d7f5 */
+    --accent-foreground: 222 47% 11%; /* Dark Blue */
+
+    --destructive: 0 84% 60%; /* Red */
+    --destructive-foreground: 210 40% 98%; /* Very Light Blue Gray */
+
+    --ring: 231 89% 64%; /* Primary Blue */
+
     --radius: 0.5rem;
   }
 }
+
 @layer base {
   * {
     @apply border-border;
