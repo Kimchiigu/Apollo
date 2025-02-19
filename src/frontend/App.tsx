@@ -8,6 +8,7 @@ import TransactionPage from './src/pages/demo/transaction-page';
 import LandingPage from './src/pages/landing/landing-page';
 import MedicinePage from './src/pages/medicine/medicine-page';
 import ChatPageDemo from './src/pages/demo/chat-page-demo';
+import ShopPage from './src/pages/shop/shop-page';
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -44,6 +45,10 @@ function App() {
     {
       path: '/chat',
       element: <ChatPage />,
+    },
+    {
+      path: '/shop',
+      element: <ShopPage />,
     },
   ];
 
