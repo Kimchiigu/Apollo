@@ -13,7 +13,7 @@ export default function Footer() {
             className="w-12 h-12"
           />
           <Label className="text-lg font-semibold font-poppins text-background">
-            Apollo Health
+            Apollo
           </Label>
         </div>
 
@@ -45,8 +45,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom: Copyright */}
-      <div className="text-center text-sm text-gray-400 mt-6 text-background font-poppins font-bold">
-        © {new Date().getFullYear()} Apollo Health. All rights reserved.
+      <div className="text-center text-sm mt-6 text-background font-poppins font-bold">
+        © {new Date().getFullYear()} Apollo. All rights reserved.
       </div>
     </footer>
   );

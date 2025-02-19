@@ -12,7 +12,7 @@ export default function NavbarGuest() {
   };
 
   return (
-    <nav className="px-6 py-4 bg-background rounded-xl">
+    <nav className="px-2 py-4 bg-background rounded-xl">
       <div className="container mx-auto flex items-center justify-between">
         {/* Left Side: Logo */}
         <div className="flex items-center space-x-2">
@@ -26,7 +26,7 @@ export default function NavbarGuest() {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex space-x-4">
-          <Button variant="default" className="font-poppins">
+          <Button variant="default" className="font-poppins lg:text-lg lg:p-6">
             Sign Up
           </Button>
         </div>

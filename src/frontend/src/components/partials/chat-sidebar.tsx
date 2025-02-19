@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Avatar } from '../ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Search } from 'lucide-react';
 
 interface Message {
@@ -52,6 +52,7 @@ export default function ChatList({
   };
 
   const getLastMessage = (chat: Chat) => {
+    // Sort msg
     return [...chat.messages].sort(
       (a, b) => b.timestamp.getTime() - a.timestamp.getTime(),
     )[0];
@@ -79,7 +80,7 @@ export default function ChatList({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search"
-            className="w-full pl-10 pr-4 py-2 bg-gray-100 border-0 rounded-md focus:ring-1 focus:ring-purple-400"
+            className="w-full pl-10 pr-4 py-2 bg-gray-100 border-0 rounded-md focus:ring-1 focus:ring-blue-400"
           />
         </div>
       </div>
@@ -96,7 +97,12 @@ export default function ChatList({
               }`}
               onClick={() => onChatSelect(chat.id)}
             >
-              <Avatar src={chat.avatar} alt={chat.name} />
+              {/* <Avatar src={chat.avatar} alt={chat.name} />
+               */}
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
               <div className="flex-1 min-w-0">
                 <div className="flex justify-between items-baseline">
                   <h2 className="text-sm font-semibold truncate">
@@ -118,7 +124,7 @@ export default function ChatList({
                 </p>
               </div>
               {unreadCount > 0 && (
-                <span className="bg-purple-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                <span className="bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                   {unreadCount}
                 </span>
               )}

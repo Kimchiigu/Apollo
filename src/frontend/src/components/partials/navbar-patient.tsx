@@ -10,20 +10,21 @@ export default function NavbarPatient() {
     navigate('/');
   };
   return (
-    <nav className="px-6 py-4 bg-background rounded-xl">
+    <nav className="px-2 py-4 bg-background rounded-xl">
       <div className="container mx-auto flex items-center justify-between">
+        {/* Left Side: Logo */}
         <div className="flex items-center space-x-2">
           <img
             src="https://res.cloudinary.com/dqvlnzw9f/image/upload/f_auto,q_auto/v1/Apollo/br0jsxar5k86lmf1ifru"
-            className="w-16 h-16"
-            alt=""
+            className="w-16 h-16 cursor-pointer"
+            alt="Apollo Logo"
             onClick={goHome}
           />
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex space-x-4">
-          <Button className="" variant="default">
+          <Button variant="default" className="font-poppins lg:text-lg lg:p-6">
             Logout
           </Button>
         </div>
@@ -33,11 +34,15 @@ export default function NavbarPatient() {
           className="lg:hidden focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? (
+            <X size={28} className="text-primary" />
+          ) : (
+            <Menu size={28} className="text-primary" />
+          )}
         </button>
       </div>
 
-      {/* Mobile Menu (Dropdown) */}
+      {/* Mobile Menu (Dropdown with Animation) */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           isOpen
@@ -46,7 +51,9 @@ export default function NavbarPatient() {
         }`}
       >
         <div className="mt-4 flex flex-col space-y-2 text-center">
-          <Button variant="outline">Logout</Button>
+          <Button variant="default" className="font-poppins">
+            Logout
+          </Button>
         </div>
       </div>
     </nav>
