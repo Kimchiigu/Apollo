@@ -50,7 +50,7 @@ export default function MedicineSidebar({
         <div>
           <button
             onClick={() => setIsNutrisiOpen(!isNutrisiOpen)}
-            className="w-full p-4 flex justify-between items-center hover:bg-gray-50 transition-colors"
+            className="text-start w-full p-4 flex justify-between items-center hover:bg-gray-50 transition-colors"
           >
             <span
               className={cn(
