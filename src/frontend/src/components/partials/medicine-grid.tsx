@@ -16,42 +16,48 @@ interface ProductGridProps {
 const allProducts: Product[] = [
   {
     name: 'Obeslim 10 Kapsul',
-    image: '/placeholder.jpg',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRG9BXTX7q8I9C66UGUfrfKYNPE1kst4HRXA&s',
     priceRange: [134300, 142100],
     category: 'Obat',
     description: 'Diet medicine for weight management',
   },
   {
     name: 'Vistat 120 mg 10 Kapsul',
-    image: '/placeholder.jpg',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0dGyWqS56WbLd8e3Lc59-CWwqt2rY2KUgIg&s',
     priceRange: [121900, 121900],
     category: 'Obat',
     description: 'Treatment for various conditions',
   },
   {
     name: 'Vitamin C 1000mg',
-    image: '/placeholder.jpg',
+    image:
+      'https://res-4.cloudinary.com/dk0z4ums3/image/upload/c_scale,h_500,w_500/v1/production/pharmacy/products/1660122001_60f7f5ba1ef1133130010a40',
     priceRange: [50000, 50000],
     category: 'Suplemen',
     description: 'High dose vitamin C supplement',
   },
   {
     name: 'Nutrisi Diet Pack',
-    image: '/placeholder.jpg',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsGXubEJi2CA6QRbgMkjvQPeej-p05RFrdVQ&s',
     priceRange: [250000, 250000],
     category: 'Nutrisi & Detoks',
     description: 'Complete nutrition pack for diet program',
   },
   {
     name: 'Redoxon Double Action',
-    image: '/placeholder.jpg',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnLeIJMqS3HJYaDfc5sl84Ju3HV1QYc7h2nA&s',
     priceRange: [45000, 45000],
     category: 'Suplemen',
     description: 'Vitamin C and Zinc supplement',
   },
   {
     name: 'Covid-19 Home Test Kit',
-    image: '/placeholder.jpg',
+    image:
+      'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQVaVlZ8wchKHBuFzjbAc3NdMdHPSmdmqo8VnB7Y2bfaYKxcCK3wV0UaDbKYehhGWmoltweua5HmynjKE1lPldBniGXBNuRkdzkNqm_msN8WHciaiHT8mr9GA&usqp=CAE',
     priceRange: [75000, 75000],
     category: 'Alat Penunjang',
     description: 'Rapid test kit for Covid-19',
@@ -82,12 +88,12 @@ export default function MedicineGrid({
       <div className="flex items-center gap-3 mb-6">
         <div className="bg-blue-600 p-2 rounded-lg">
           <img
-            src="/medicine-icon.png"
+            src="https://cdn-icons-png.flaticon.com/512/483/483462.png"
             alt="Medicine icon"
             className="w-6 h-6 text-white"
           />
         </div>
-        <h2 className="text-xl font-semibold">
+        <h2 className="text-xl font-semibold font-poppins">
           {category}
           {searchTerm && (
             <span className="text-gray-500 text-base ml-2">
@@ -98,7 +104,7 @@ export default function MedicineGrid({
       </div>
 
       {filteredProducts.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 font-poppins">
           {filteredProducts.map((product) => (
             <ProductCard
               key={product.name}
@@ -109,7 +115,7 @@ export default function MedicineGrid({
           ))}
         </div>
       ) : (
-        <div className="text-center py-8 text-gray-500">
+        <div className="text-center py-8 text-gray-500 font-poppins">
           {searchTerm ? (
             <>
               No products found matching "{searchTerm}" in {category}
