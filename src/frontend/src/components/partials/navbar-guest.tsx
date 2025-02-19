@@ -26,8 +26,9 @@ export default function NavbarGuest() {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex space-x-4">
-          <Button variant="outline">Login</Button>
-          <Button variant="default">Register</Button>
+          <Button variant="default" className="font-poppins">
+            Sign Up
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -35,7 +36,11 @@ export default function NavbarGuest() {
           className="lg:hidden focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? (
+            <X size={28} className="text-primary" />
+          ) : (
+            <Menu size={28} className="text-primary" />
+          )}
         </button>
       </div>
 
@@ -48,8 +53,9 @@ export default function NavbarGuest() {
         }`}
       >
         <div className="mt-4 flex flex-col space-y-2 text-center">
-          <Button variant="outline">Login</Button>
-          <Button variant="default">Register</Button>
+          <Button variant="default" className="font-poppins">
+            Sign Up
+          </Button>
         </div>
       </div>
     </nav>
