@@ -59,48 +59,48 @@ export default function ShopPage() {
                   <h2 className="text-lg font-semibold">{category.name}</h2>
                 </div>
 
-                {/* Subcategories in two columns */}
-                <div className="grid grid-cols-2 gap-4">
-                  {category.subcategories.map((sub, subIndex) => (
-                    <div
-                      key={subIndex}
-                      className="text-gray-600 hover:text-gray-900 cursor-pointer"
-                    >
-                      {sub}
-                    </div>
-                  ))}
-                </div>
+              {/* Subcategory 2 column */}
+              <div className="grid grid-cols-2 gap-4">
+                {category.subcategories.map((sub, subIndex) => (
+                  <div
+                    key={subIndex}
+                    className="text-gray-600 hover:text-gray-900 cursor-pointer"
+                  >
+                    {sub}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
 
-          {/* Right Column */}
-          <div>
-            {rightCategories.map((category, index) => (
-              <div key={index} className="mb-6">
-                {/* Category Title with Avatar */}
-                <div className="flex items-center space-x-3 mb-2">
+        {/* Mobile View with Accordion */}
+        <div className="lg:hidden">
+          <Accordion type="single" collapsible>
+            {categories.map((category, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger className="flex items-center space-x-3">
                   <Avatar>
                     <AvatarImage src={category.image} />
                     <AvatarFallback>{category.name.charAt(0)}</AvatarFallback>
                   </Avatar>
-                  <h2 className="text-lg font-semibold">{category.name}</h2>
-                </div>
-
-                {/* Subcategories in two columns */}
-                <div className="grid grid-cols-2 gap-4">
-                  {category.subcategories.map((sub, subIndex) => (
-                    <div
-                      key={subIndex}
-                      className="text-gray-600 hover:text-gray-900 cursor-pointer"
-                    >
-                      {sub}
-                    </div>
-                  ))}
-                </div>
-              </div>
+                  <span>{category.name}</span>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="grid grid-cols-2 gap-4">
+                    {category.subcategories.map((sub, subIndex) => (
+                      <div
+                        key={subIndex}
+                        className="text-gray-600 hover:text-gray-900 cursor-pointer"
+                      >
+                        {sub}
+                      </div>
+                    ))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
         </div>
       </div>
     </div>

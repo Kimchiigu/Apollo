@@ -4,6 +4,7 @@ import { idlFactory } from '@/declarations/backend_service_chat';
 import { AuthClient } from '@dfinity/auth-client';
 import { Principal } from '@dfinity/principal';
 import { useAuth } from '../../hooks/use-auth-client';
+import { backend_service_chat } from '@/declarations/backend_service_chat';
 
 // Define types
 interface User {

@@ -6,6 +6,7 @@ import App from './App';
 import './index.scss';
 import LoadingAnimation from './src/components/partials/loading-animation';
 import { AuthProvider } from './src/hooks/use-auth-client';
+import { Toaster } from './src/components/ui/toaster';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <AuthProvider>
       <LoadingAnimation>
         <App />
+        <Toaster />
       </LoadingAnimation>
     </AuthProvider>
     {/* </ActorProvider> */}
