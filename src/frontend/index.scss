@@ -10,7 +10,7 @@
     --color-1: 231 89% 64%; /* Blue #5865f2 */
     --color-2: 231 83% 50%; /* Darker Blue */
     --color-3: 231 100% 85%; /* Lighter Blue */
-    --color-4: 207 100% 99%; /* Lighter Background */
+    --color-4: 207 100% 93%; /* Lighter Background */
     --color-5: 231 90% 40%; /* Deep Blue */
     --background: 0 0% 100%; /* White Background */
     --foreground: 210 40% 0%; /* Darker Blue for Text */
@@ -35,30 +35,30 @@
   }
 
   .dark {
-    --color-1: 231 89% 64%; /* Primary Blue */
+    --color-1: 231 89% 64%; /* Blue #5865f2 */
     --color-2: 231 83% 50%; /* Darker Blue */
     --color-3: 231 100% 85%; /* Lighter Blue */
-    --color-4: 231 90% 10%; /* Dark Background */
+    --color-4: 207 100% 93%; /* Lighter Background */
     --color-5: 231 90% 40%; /* Deep Blue */
-    --background: 231 90% 10%; /* Dark Blue Background */
-    --foreground: 0 0% 100%; /* White Text */
-    --muted: 231 90% 20%; /* Muted Blue */
-    --muted-foreground: 231 70% 80%; /* Lighter Blue Text */
-    --popover: 231 83% 15%; /* Dark Popover */
-    --popover-foreground: 0 0% 100%; /* White */
-    --border: 231 80% 30%; /* Soft Blue Border */
-    --input: 231 70% 40%; /* Input Field Blue */
-    --card: 231 83% 20%; /* Card Background */
-    --card-foreground: 0 0% 100%; /* White Text */
+    --background: 0 0% 100%; /* White Background */
+    --foreground: 210 40% 0%; /* Darker Blue for Text */
+    --muted: 231 100% 95%; /* Very Light Blue */
+    --muted-foreground: 231 70% 50%; /* Muted Blue */
+    --popover: 0 0% 98%; /* Soft White */
+    --popover-foreground: 231 83% 50%; /* Blue Foreground */
+    --border: 231 80% 70%; /* Soft Blue Border */
+    --input: 231 70% 60%; /* Input Field Blue */
+    --card: 231 95% 98%; /* Light Blue Card */
+    --card-foreground: 231 83% 50%; /* Blue Text */
     --primary: 231 89% 64%; /* Primary Blue */
-    --primary-foreground: 0 0% 100%; /* White */
-    --secondary: 231 83% 50%; /* Secondary Blue */
-    --secondary-foreground: 0 0% 100%; /* White */
+    --primary-foreground: 0 0% 100%; /* White Text */
+    --secondary: 231 100% 85%; /* Lighter Blue */
+    --secondary-foreground: 231 83% 50%; /* Blue Foreground */
     --accent: 231 90% 75%; /* Accent Blue */
-    --accent-foreground: 0 0% 100%; /* White */
-    --destructive: 0 85% 50%; /* Red for Errors */
-    --destructive-foreground: 0 0% 100%; /* White */
-    --ring: 231 89% 64%; /* Blue Highlight */
+    --accent-foreground: 231 83% 50%; /* Blue Text */
+    --destructive: 0 85% 50%; /* Red for Warnings */
+    --destructive-foreground: 0 0% 100%; /* White Text */
+    --ring: 231 89% 64%; /* Highlight Blue */
     --radius: 0.5rem;
   }
 }
