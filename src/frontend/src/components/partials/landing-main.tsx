@@ -1,111 +1,113 @@
 import { Label } from '../ui/label';
 import { motion } from 'framer-motion';
 import LandingCarousel from './landing-carousel';
+import { Button } from '../ui/button';
+import {
+  ArrowRight,
+  MessageSquare,
+  PlusCircle,
+  ShieldCheck,
+} from 'lucide-react';
 
 export default function LandingMain() {
   return (
-    <div className="p-4 flex flex-col gap-4 xl:px-16">
-      <motion.div
-        className="flex flex-col gap-4 bg-background p-4 rounded-lg lg:hidden"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-      >
-        <Label className="font-poppins text-4xl font-bold text-primary">
-          The Complete Health Solution
-        </Label>
+    <>
+      <section className="relative w-full py-12 md:py-24 lg:py-32 xl:py-48 flex justify-center bg-background text-foreground">
+        <div
+          className="absolute inset-0 lg:block hidden blur-sm"
+          style={{
+            backgroundImage:
+              "url('https://res.cloudinary.com/dqvlnzw9f/image/upload/f_auto,q_auto/v1/Apollo/k807xrjgtqtp8ma87ua7')",
+            backgroundSize: '110%',
+            backgroundPosition: '70% center',
+            backgroundRepeat: 'no-repeat',
+            opacity: 1,
+          }}
+        ></div>
 
-        <Label className="font-poppins text-foreground leading-6">
-          Revolutionizing healthcare with blockchain technology. Consult with
-          doctors, buy medicines safely, and manage your health in one trusted
-          platform.
-        </Label>
-      </motion.div>
-
-      <motion.div
-        className="hidden lg:flex flex-col gap-4 p-4 rounded-lg relative bg-no-repeat"
-        style={{
-          backgroundImage:
-            "url('https://res.cloudinary.com/dqvlnzw9f/image/upload/f_auto,q_auto/v1/Apollo/okw6mgcaqxolmtbsepwt')",
-          minHeight: '50vh',
-          backgroundSize: '110%',
-          backgroundPosition: '60% center',
-        }}
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-      >
-        <div className="absolute inset-0 flex flex-col items-start justify-center text-center w-2/5 pl-12">
-          <Label className="font-poppins text-5xl font-bold text-primary text-left">
-            The Complete Health Solution
-          </Label>
-          <Label className="font-poppins text-foreground max-w-2xl text-left text-xl mt-4">
-            Revolutionizing healthcare with blockchain technology. Consult with
-            doctors, buy medicines safely, and manage your health in one trusted
-            platform.
-          </Label>
+        <div className="container px-4 md:px-6 mx-auto flex flex-col items-center text-center relative z-10">
+          <div className="space-y-2">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-color-2 font-poppins">
+              Apollo: Healthcare, Anytime, Anywhere
+            </h1>
+            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl font-poppins">
+              Secure consultations, online pharmacy, and AI-powered health
+              assistance - all powered by blockchain technology.
+            </p>
+          </div>
+          <div className="space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
+            <Button
+              variant={'secondary'}
+              className="w-full sm:w-auto font-poppins lg:text-xl lg:p-6"
+            >
+              Get Started
+            </Button>
+            <Button
+              variant={'outline'}
+              className="w-full sm:w-auto text-primary font-poppins lg:text-xl lg:p-6 border"
+            >
+              Learn More
+            </Button>
+          </div>
         </div>
-      </motion.div>
+      </section>
 
-      <motion.div
-        className="flex flex-col gap-4 bg-background p-4 rounded-lg lg:hidden"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-      >
-        <LandingCarousel></LandingCarousel>
-      </motion.div>
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-secondary/10 dark:bg-secondary/20 flex justify-center">
+        <div className="container px-4 md:px-6 mx-auto">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 font-poppins text-primary">
+            Key Features
+          </h2>
+          <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 text-center">
+            <div className="flex flex-col items-center">
+              <MessageSquare className="h-12 w-12 mb-4 text-secondary" />
+              <h3 className="text-lg font-bold text-foreground font-poppins">
+                Online Consultations
+              </h3>
+              <p className="text-md text-muted-foreground font-poppins">
+                Connect with healthcare professionals from anywhere, at any
+                time.
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <PlusCircle className="h-12 w-12 mb-4 text-secondary" />
+              <h3 className="text-lg font-bold text-foreground font-poppins">
+                Online Pharmacy
+              </h3>
+              <p className="text-md text-muted-foreground font-poppins">
+                Order medications securely and have them delivered to your
+                doorstep.
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <ShieldCheck className="h-12 w-12 text-secondary mb-4" />
+              <h3 className="text-lg font-bold text-foreground font-poppins">
+                Blockchain Security
+              </h3>
+              <p className="text-md text-muted-foreground font-poppins">
+                Enhanced security and transparency for all your health
+                transactions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <motion.div
-        className="flex flex-col gap-4 bg-background p-4 rounded-lg lg:hidden"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
-      >
-        <Label className="font-poppins text-4xl font-bold text-primary">
-          About Us
-        </Label>
-
-        <Label className="font-poppins text-foreground leading-6">
-          We present innovative health solutions with blockchain technology
-          (Web3) to provide online doctor consultation and drug sales services.
-          With a secure and transparent system, we ensure that every transaction
-          runs with full trust. Our mission is to provide easy access to health
-          services for everyone, ensuring fast, safe, and reliable medical
-          consultations.
-        </Label>
-      </motion.div>
-
-      <div className="hidden lg:flex flex-row gap-8 items-center justify-center">
-        <motion.div
-          className="flex flex-col gap-4 bg-background p-16 rounded-lg w-1/2"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
-        >
-          <Label className="font-poppins text-5xl font-bold text-primary">
-            About Us
-          </Label>
-
-          <Label className="font-poppins text-foreground leading-6 text-lg">
-            We present innovative health solutions with blockchain technology
-            (Web3) to provide online doctor consultation and drug sales
-            services. With a secure and transparent system, we ensure that every
-            transaction runs with full trust. Our mission is to provide easy
-            access to health services for everyone, ensuring fast, safe, and
-            reliable medical consultations.
-          </Label>
-        </motion.div>
-
-        <motion.div
-          className="hidden lg:flex flex-col gap-4 bg-background p-4 rounded-lg w-1/2"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
-          <LandingCarousel></LandingCarousel>
-        </motion.div>
-      </div>
-    </div>
+      <section className="w-full py-12 md:py-24 lg:py-32 flex justify-center bg-background text-foreground">
+        <div className="container px-4 md:px-6 mx-auto flex flex-col items-center text-center">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary font-poppins">
+              Experience the Future of Healthcare
+            </h2>
+            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl font-poppins">
+              Join thousands of users who trust HealthChain for their healthcare
+              needs.
+            </p>
+          </div>
+          <Button className="font-poppins w-full sm:w-auto inline-flex h-10 items-center justify-center rounded-md bg-secondary px-8 text-sm font-medium text-secondary-foreground shadow transition-colors hover:bg-secondary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-secondary disabled:pointer-events-none disabled:opacity-50 mt-8">
+            Sign Up Now <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
+      </section>
+    </>
   );
 }
