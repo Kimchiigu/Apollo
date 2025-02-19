@@ -7,24 +7,15 @@ export default function Logout() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col h-screen justify-center items-center">
-      <div className="absolute inset-0 w-full h-full -z-10">
-        <img
-          src="https://res.cloudinary.com/dxcn5osfu/image/upload/f_auto,q_auto/v1/Triton/Website/cjfbhsmvgmeu7mndvmuu"
-          alt="Triton Background"
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <div className="w-2/5 h-2/6 bg-white backdrop-blur-lg p-10 rounded-2xl shadow-xl flex flex-col gap-4 items-center justify-center">
-        <div className="text-orange-custom font-bold text-5xl font-pixel">
-          Hello Stranger!
-        </div>
-        <div className="font-pixel text-2xl">You are not authenticated</div>
-        <div className="flex flex-row gap-8 w-full pt-4 justify-center">
+    <div className="min-h-screen bg-blue-50 flex items-center justify-center">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md text-center">
+        <h1 className="text-2xl font-bold text-blue-700 mb-4">Logged Out</h1>
+        <p className="text-gray-600">Sorry, but you're not authenticated yet :(</p>
+        <div className="flex flex-row gap-4 w-full pt-4 justify-center">
           <Button
             variant={'default'}
             onClick={login}
-            className="w-full font-pixel text-xl p-6"
+            className="w-full"
             color="white"
           >
             Log in
@@ -32,7 +23,7 @@ export default function Logout() {
           <Button
             variant={'outline'}
             onClick={() => navigate('/')}
-            className="w-full font-pixel text-xl p-6 border-4 border-primary text-primary hover:text-primary"
+            className="w-full"
           >
             Back to Landing Page
           </Button>
