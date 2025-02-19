@@ -18,10 +18,6 @@
       "type": "motoko",
       "main": "src/backend/services/chatservice.mo"
     },
-    "backend_util": {
-      "type": "motoko",
-      "main": "src/backend/utils/util.mo"
-    },
     "icp_ledger_canister": {
       "type": "custom",
       "candid": "icp_ledger.did",
