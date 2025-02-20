@@ -106,7 +106,10 @@ export default function LandingMain() {
               needs.
             </p>
           </div>
-          <Button className="font-poppins w-full sm:w-auto inline-flex h-10 items-center justify-center rounded-md bg-secondary px-8 text-sm font-medium text-secondary-foreground shadow transition-colors hover:bg-secondary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-secondary disabled:pointer-events-none disabled:opacity-50 mt-8">
+          <Button
+            className="font-poppins w-full sm:w-auto inline-flex h-10 items-center justify-center rounded-md bg-secondary px-8 text-sm font-medium text-secondary-foreground shadow transition-colors hover:bg-secondary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-secondary disabled:pointer-events-none disabled:opacity-50 mt-8"
+            onClick={() => navigate('/login')}
+          >
             Sign Up Now <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

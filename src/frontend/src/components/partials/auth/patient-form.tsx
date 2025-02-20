@@ -53,6 +53,7 @@ export default function PatientForm() {
     },
   });
 
+  //TODO
   async function onSubmit(values: z.infer<typeof patientFormSchema>) {
     if (!identity?.getPrincipal) {
       toast({
@@ -101,7 +102,7 @@ export default function PatientForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-poppins">
           <FormField
             control={form.control}
             name="fullName"
@@ -174,7 +175,7 @@ export default function PatientForm() {
                       <Button
                         variant="outline"
                         className={cn(
-                          'w-full pl-3 text-left',
+                          'w-full pl-3 text-left border-border',
                           !field.value && 'text-muted-foreground',
                         )}
                       >
@@ -207,7 +208,7 @@ export default function PatientForm() {
                 <RadioGroup
                   onValueChange={field.onChange}
                   defaultValue={field.value}
-                  className="flex space-x-4"
+                  className="flex space-x-4 items-center"
                 >
                   {['male', 'female', 'other'].map((gender) => (
                     <FormItem
@@ -217,7 +218,7 @@ export default function PatientForm() {
                       <FormControl>
                         <RadioGroupItem value={gender} />
                       </FormControl>
-                      <FormLabel>
+                      <FormLabel className="pb-2">
                         {gender.charAt(0).toUpperCase() + gender.slice(1)}
                       </FormLabel>
                     </FormItem>
@@ -229,10 +230,7 @@ export default function PatientForm() {
           />
         </div>
 
-        <Button
-          type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white"
-        >
+        <Button type="submit" className="w-full font-poppins">
           Register as Patient
         </Button>
       </form>

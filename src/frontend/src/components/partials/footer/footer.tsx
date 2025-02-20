@@ -1,5 +1,5 @@
 import { Mail, Phone } from 'lucide-react';
-import { Label } from '../ui/label';
+import { Label } from '../../ui/label';
 
 export default function Footer() {
   return (

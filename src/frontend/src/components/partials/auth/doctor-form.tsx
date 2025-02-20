@@ -28,33 +28,7 @@ import { CalendarIcon } from '@radix-ui/react-icons';
 import { Calendar } from '../../ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '../../ui/popover';
 import { cn } from '../../../lib/utils';
-
-const specializations = [
-  'Dokter Umum',
-  'Spesialis Anak',
-  'Spesialis Kulit',
-  'Spesialis Penyakit Dalam',
-  'Spesialis THT',
-  'Spesialis Kandungan',
-  'Dokter Hewan',
-  'Psikiater',
-  'Psikolog Klinis',
-  'Kesehatan Paru',
-  'Spesialis Mata',
-  'Seksologi & Spesialis Reproduksi Pria',
-  'Spesialis Gizi Klinik',
-  'Talk Therapy Clinic',
-  'Dokter Gigi',
-  'Perawatan Rambut',
-  'Spesialis Bedah',
-  'Spesialis Jantung',
-  'Spesialis Saraf',
-  'Laktasi',
-  'Program Hamil',
-  'Fisioterapi & Rehabilitasi',
-  'Medikolegal & Hukum Kesehatan',
-  'Pemeriksaan Lab',
-];
+import { useEffect, useState } from 'react';
 
 // Doctor schema
 const doctorFormSchema = z.object({
@@ -76,9 +50,32 @@ const doctorFormSchema = z.object({
   specialization: z.string().min(1, { message: 'Specialization is required.' }),
 });
 
+interface Specialization {
+  id: number;
+  name: string;
+}
+
 export default function DoctorForm() {
   const { identity } = useAuth();
   const { toast } = useToast();
+
+  const [specializations, setSpecializations] = useState<Specialization[]>([]);
+
+  //TODO
+  useEffect(() => {
+    const fetchSpecializations = async () => {
+      try {
+        const response = await fetch('/public/temp_db/specializations.json');
+        if (!response.ok) throw new Error('Failed to fetch specializations');
+        const data: Specialization[] = await response.json();
+        setSpecializations(data);
+      } catch (error) {
+        console.error('Error fetching specializations:', error);
+      }
+    };
+
+    fetchSpecializations();
+  }, []);
 
   const form = useForm<z.infer<typeof doctorFormSchema>>({
     resolver: zodResolver(doctorFormSchema),
@@ -93,6 +90,7 @@ export default function DoctorForm() {
     },
   });
 
+  //TODO
   async function onSubmit(values: z.infer<typeof doctorFormSchema>) {
     if (!identity?.getPrincipal) {
       toast({
@@ -141,7 +139,7 @@ export default function DoctorForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-poppins">
           <FormField
             control={form.control}
             name="fullName"
@@ -214,7 +212,7 @@ export default function DoctorForm() {
                       <Button
                         variant="outline"
                         className={cn(
-                          'w-full pl-3 text-left',
+                          'w-full pl-3 text-left border-border',
                           !field.value && 'text-muted-foreground',
                         )}
                       >
@@ -257,7 +255,7 @@ export default function DoctorForm() {
                       <FormControl>
                         <RadioGroupItem value={gender} />
                       </FormControl>
-                      <FormLabel>
+                      <FormLabel className="pb-2">
                         {gender.charAt(0).toUpperCase() + gender.slice(1)}
                       </FormLabel>
                     </FormItem>
@@ -299,8 +297,8 @@ export default function DoctorForm() {
                   </FormControl>
                   <SelectContent>
                     {specializations.map((spec) => (
-                      <SelectItem key={spec} value={spec}>
-                        {spec}
+                      <SelectItem key={spec.id} value={String(spec.id)}>
+                        {spec.name}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -311,10 +309,7 @@ export default function DoctorForm() {
           />
         </div>
 
-        <Button
-          type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white"
-        >
+        <Button type="submit" className="w-full font-poppins">
           Register as Doctor
         </Button>
       </form>

@@ -1,6 +1,6 @@
-import Footer from '../../components/partials/footer';
-import LandingMain from '../../components/partials/landing-main';
-import Navbar from '../../components/partials/navbar';
+import Footer from '../../components/partials/footer/footer';
+import LandingMain from '../../components/partials/landing/landing-main';
+import Navbar from '../../components/partials/navbar/navbar';
 
 export default function LandingPage() {
   return (

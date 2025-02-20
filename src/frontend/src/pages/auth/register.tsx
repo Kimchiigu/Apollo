@@ -6,9 +6,9 @@ export default function RegisterForm() {
   const [isDoctor, setIsDoctor] = useState(false);
 
   return (
-    <div className="min-h-screen bg-blue-50 flex items-center justify-center p-4">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-4xl">
-        <h1 className="text-2xl font-bold text-blue-700 mb-6 text-center">
+    <div className="min-h-screen bg-primary flex items-center justify-center p-4">
+      <div className="bg-background p-8 rounded-lg shadow-md w-full max-w-4xl">
+        <h1 className="text-2xl font-bold text-primary mb-6 text-center font-poppins">
           {isDoctor ? 'Doctor Registration' : 'Patient Registration'}
         </h1>
 
@@ -16,7 +16,7 @@ export default function RegisterForm() {
 
         <div className="mt-4 text-center">
           {isDoctor ? (
-            <p>
+            <p className="font-poppins">
               Are you a patient?{' '}
               <a
                 href="#"
@@ -24,13 +24,13 @@ export default function RegisterForm() {
                   e.preventDefault();
                   setIsDoctor(false);
                 }}
-                className="text-blue-600 hover:underline"
+                className="text-blue-600 hover:underline font-poppins"
               >
                 Click here to register as a Patient
               </a>
             </p>
           ) : (
-            <p>
+            <p className="font-poppins">
               Are you a doctor?{' '}
               <a
                 href="#"
@@ -38,7 +38,7 @@ export default function RegisterForm() {
                   e.preventDefault();
                   setIsDoctor(true);
                 }}
-                className="text-blue-600 hover:underline"
+                className="text-blue-600 hover:underline font-poppins"
               >
                 Click here to register as a Doctor
               </a>
