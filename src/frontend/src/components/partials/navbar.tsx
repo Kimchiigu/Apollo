@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '../../hooks/use-auth-client';
 import NavbarGuest from './navbar-guest';
 import NavbarPatient from './navbar-patient';
+import NavbarDoctor from './navbar-doctor';
 
 export default function Navbar() {
   const { isAuthenticated } = useAuth();
@@ -20,8 +21,7 @@ export default function Navbar() {
         role === 'Patient' ? (
           <NavbarPatient />
         ) : (
-          //   <NavbarDoctor />
-          <NavbarPatient />
+          <NavbarDoctor />
         )
       ) : (
         <NavbarGuest />

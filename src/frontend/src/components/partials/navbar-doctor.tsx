@@ -1,13 +1,10 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Menu, X } from 'lucide-react';
-import { useAuth } from '../../hooks/use-auth-client';
+import { useNavigate } from 'react-router-dom';
 
-export default function NavbarPatient() {
+export default function NavbarDoctor() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const { logout } = useAuth();
   const navigate = useNavigate();
 
   const goHome = () => {
@@ -30,7 +27,7 @@ export default function NavbarPatient() {
         {/* Desktop Menu */}
         <div className="hidden lg:flex space-x-4">
           <Button variant="default" className="font-poppins">
-            Logout
+            Sign Up
           </Button>
         </div>
 
@@ -56,8 +53,8 @@ export default function NavbarPatient() {
         }`}
       >
         <div className="mt-4 flex flex-col space-y-2 text-center">
-          <Button variant="default" className="font-poppins" onClick={logout}>
-            Logout
+          <Button variant="default" className="font-poppins">
+            Sign Up
           </Button>
         </div>
       </div>

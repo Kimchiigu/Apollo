@@ -8,7 +8,7 @@ export default function NavbarGuest() {
   const navigate = useNavigate();
 
   const goHome = () => {
-    navigate('/');
+    navigate('/home');
   };
 
   return (
@@ -26,7 +26,11 @@ export default function NavbarGuest() {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex space-x-4">
-          <Button variant="default" className="font-poppins lg:text-lg lg:p-6">
+          <Button
+            variant="default"
+            className="font-poppins"
+            onClick={() => navigate('/login')}
+          >
             Sign Up
           </Button>
         </div>

@@ -7,23 +7,24 @@ export default function Logout() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md text-center">
-        <h1 className="text-2xl font-bold text-blue-700 mb-4">Logged Out</h1>
-        <p className="text-gray-600">Sorry, but you're not authenticated yet :(</p>
+    <div className="min-h-screen bg-primary flex items-center justify-center">
+      <div className="bg-background p-8 rounded-lg shadow-md w-full max-w-md text-center">
+        <h1 className="text-2xl font-bold mb-4 font-poppins">Logged Out</h1>
+        <p className="text-muted-foreground font-poppins">
+          Sorry, but you're not authenticated yet :(
+        </p>
         <div className="flex flex-row gap-4 w-full pt-4 justify-center">
           <Button
             variant={'default'}
             onClick={login}
-            className="w-full"
-            color="white"
+            className="w-full font-poppins"
           >
             Log in
           </Button>
           <Button
             variant={'outline'}
             onClick={() => navigate('/')}
-            className="w-full"
+            className="w-full font-poppins"
           >
             Back to Landing Page
           </Button>
