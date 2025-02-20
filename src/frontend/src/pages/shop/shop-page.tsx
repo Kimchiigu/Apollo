@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/partials/navbar/navbar';
+import Footer from '../../components/partials/footer/footer';
+import { Card, CardContent, CardHeader } from '../../components/ui/card';
 import {
   Avatar,
   AvatarFallback,
@@ -47,7 +49,7 @@ export default function ShopPage() {
         <h1 className="text-2xl font-semibold mb-6">Obat &amp; Perawatan</h1>
 
         {/* Desktop View */}
-        {/* TODO fix card size */}
+        {/* TODO fix card g */}
         <div className="hidden lg:grid grid-cols-4 gap-6">
           {categories.map((category, index) => (
             <Card
