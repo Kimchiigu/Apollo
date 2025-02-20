@@ -53,7 +53,11 @@ export default function NavbarGuest() {
         }`}
       >
         <div className="mt-4 flex flex-col space-y-2 text-center">
-          <Button variant="default" className="font-poppins">
+          <Button
+            variant="default"
+            className="font-poppins"
+            onClick={() => navigate('/login')}
+          >
             Sign Up
           </Button>
         </div>

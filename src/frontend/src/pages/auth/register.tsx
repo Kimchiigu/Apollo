@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import PatientForm from './patient-form';
 import DoctorForm from './doctor-form';
-import { Button } from '../../components/ui/button';
 
 export default function RegisterForm() {
   const [isDoctor, setIsDoctor] = useState(false);
@@ -12,15 +11,39 @@ export default function RegisterForm() {
         <h1 className="text-2xl font-bold text-blue-700 mb-6 text-center">
           {isDoctor ? 'Doctor Registration' : 'Patient Registration'}
         </h1>
-
+        
         {isDoctor ? <DoctorForm /> : <PatientForm />}
 
-        <div className="mt-6 text-center">
-          <Button onClick={() => setIsDoctor(!isDoctor)}>
-            {isDoctor
-              ? 'Switch to Patient Registration'
-              : 'Switch to Doctor Registration'}
-          </Button>
+        <div className="mt-4 text-center">
+          {isDoctor ? (
+            <p>
+              Are you a patient?{' '}
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsDoctor(false);
+                }}
+                className="text-blue-600 hover:underline"
+              >
+                Click here to register as a Patient
+              </a>
+            </p>
+          ) : (
+            <p>
+              Are you a doctor?{' '}
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsDoctor(true);
+                }}
+                className="text-blue-600 hover:underline"
+              >
+                Click here to register as a Doctor
+              </a>
+            </p>
+          )}
         </div>
       </div>
     </div>

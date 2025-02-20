@@ -23,12 +23,41 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../../components/ui/select';
+import { RadioGroup, RadioGroupItem } from '../../components/ui/radio-group';
+import { CalendarIcon } from '@radix-ui/react-icons';
+import { Calendar } from '../../components/ui/calendar';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '../../components/ui/popover';
+import { cn } from '../../lib/utils';
 
 const specializations = [
-  'General',
-  'Pediatrician',
-  'Dermatologist',
-  'Cardiologist',
+  'Dokter Umum',
+  'Spesialis Anak',
+  'Spesialis Kulit',
+  'Spesialis Penyakit Dalam',
+  'Spesialis THT',
+  'Spesialis Kandungan',
+  'Dokter Hewan',
+  'Psikiater',
+  'Psikolog Klinis',
+  'Kesehatan Paru',
+  'Spesialis Mata',
+  'Seksologi & Spesialis Reproduksi Pria',
+  'Spesialis Gizi Klinik',
+  'Talk Therapy Clinic',
+  'Dokter Gigi',
+  'Perawatan Rambut',
+  'Spesialis Bedah',
+  'Spesialis Jantung',
+  'Spesialis Saraf',
+  'Laktasi',
+  'Program Hamil',
+  'Fisioterapi & Rehabilitasi',
+  'Medikolegal & Hukum Kesehatan',
+  'Pemeriksaan Lab',
 ];
 
 // Doctor schema
@@ -116,94 +145,179 @@ export default function DoctorForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-        <FormField
-          control={form.control}
-          name="fullName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Full Name</FormLabel>
-              <FormControl>
-                <Input placeholder="Dr. John Doe" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input
-                  type="email"
-                  placeholder="doctor@example.com"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="phoneNumber"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Phone Number</FormLabel>
-              <FormControl>
-                <Input placeholder="+1 (555) 123-4567" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="registrationNumber"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Registration Number</FormLabel>
-              <FormControl>
-                <Input placeholder="123456" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="specialization"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Specialization</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <FormField
+            control={form.control}
+            name="fullName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Full Name</FormLabel>
                 <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select specialization" />
-                  </SelectTrigger>
+                  <Input placeholder="Dr. John Doe" {...field} />
                 </FormControl>
-                <SelectContent>
-                  {specializations.map((spec) => (
-                    <SelectItem key={spec} value={spec}>
-                      {spec}
-                    </SelectItem>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input
+                    type="email"
+                    placeholder="doctor@example.com"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="phoneNumber"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Phone Number</FormLabel>
+                <FormControl>
+                  <Input placeholder="+1 (555) 123-4567" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="address"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Address</FormLabel>
+                <FormControl>
+                  <Input placeholder="123 Main St, City, Country" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="dob"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Date of Birth</FormLabel>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant="outline"
+                        className={cn(
+                          'w-full pl-3 text-left',
+                          !field.value && 'text-muted-foreground',
+                        )}
+                      >
+                        {field.value
+                          ? format(field.value, 'PPP')
+                          : 'Pick a date'}
+                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent align="start">
+                    <Calendar
+                      mode="single"
+                      selected={field.value}
+                      onSelect={field.onChange}
+                    />
+                  </PopoverContent>
+                </Popover>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="gender"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Gender</FormLabel>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className="flex space-x-4"
+                >
+                  {['male', 'female', 'other'].map((gender) => (
+                    <FormItem
+                      key={gender}
+                      className="flex items-center space-x-2"
+                    >
+                      <FormControl>
+                        <RadioGroupItem value={gender} />
+                      </FormControl>
+                      <FormLabel>
+                        {gender.charAt(0).toUpperCase() + gender.slice(1)}
+                      </FormLabel>
+                    </FormItem>
                   ))}
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+                </RadioGroup>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="registrationNumber"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Registration Number</FormLabel>
+                <FormControl>
+                  <Input placeholder="123456" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="specialization"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Specialization</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select specialization" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {specializations.map((spec) => (
+                      <SelectItem key={spec} value={spec}>
+                        {spec}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
 
         <Button
           type="submit"
-          className="w-full bg-green-600 hover:bg-green-700 text-white"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white"
         >
           Register as Doctor
         </Button>

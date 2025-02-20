@@ -2,13 +2,18 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Menu, X } from 'lucide-react';
+import { useAuth } from '../../hooks/use-auth-client';
 
 export default function NavbarPatient() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { logout } = useAuth();
   const navigate = useNavigate();
+
   const goHome = () => {
     navigate('/');
   };
+
   return (
     <nav className="px-2 py-4 bg-background rounded-xl">
       <div className="container mx-auto flex items-center justify-between">
@@ -51,7 +56,7 @@ export default function NavbarPatient() {
         }`}
       >
         <div className="mt-4 flex flex-col space-y-2 text-center">
-          <Button variant="default" className="font-poppins">
+          <Button variant="default" className="font-poppins" onClick={logout}>
             Logout
           </Button>
         </div>

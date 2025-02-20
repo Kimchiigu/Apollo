@@ -7,8 +7,11 @@ import {
   PlusCircle,
   ShieldCheck,
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function LandingMain() {
+  const navigate = useNavigate();
+
   return (
     <>
       <section className="relative w-full py-12 md:py-24 lg:py-32 xl:py-48 flex justify-center bg-background text-foreground">
@@ -38,6 +41,7 @@ export default function LandingMain() {
             <Button
               variant={'secondary'}
               className="w-full sm:w-auto font-poppins lg:text-xl lg:p-6"
+              onClick={() => navigate('/login')}
             >
               Get Started
             </Button>
