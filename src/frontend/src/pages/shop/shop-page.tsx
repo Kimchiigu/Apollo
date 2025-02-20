@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../../components/partials/navbar';
-import Footer from '../../components/partials/footer';
-import { Card, CardContent, CardHeader } from '../../components/ui/card';
+import Navbar from '../../components/partials/navbar/navbar';
 import {
   Avatar,
   AvatarFallback,
