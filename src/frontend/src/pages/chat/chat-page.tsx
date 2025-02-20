@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import ChatInterface from '../../components/partials/chat-interface';
-import ChatList from '../../components/partials/chat-sidebar';
+import ChatInterface from '../../components/partials/chat/chat-interface';
+import ChatList from '../../components/partials/chat/chat-sidebar';
 import { Menu, X } from 'lucide-react';
 
 interface Message {

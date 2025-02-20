@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import PatientForm from './patient-form';
-import DoctorForm from './doctor-form';
+import PatientForm from '../../components/partials/auth/patient-form';
+import DoctorForm from '../../components/partials/auth/doctor-form';
 
 export default function RegisterForm() {
   const [isDoctor, setIsDoctor] = useState(false);
@@ -11,7 +11,7 @@ export default function RegisterForm() {
         <h1 className="text-2xl font-bold text-blue-700 mb-6 text-center">
           {isDoctor ? 'Doctor Registration' : 'Patient Registration'}
         </h1>
-        
+
         {isDoctor ? <DoctorForm /> : <PatientForm />}
 
         <div className="mt-4 text-center">

@@ -1,6 +1,6 @@
 import SearchBar from '../../components/component/SearchBar/SearchBar';
-import Sidebar from '../../components/partials/medicine-sidebar';
-import ProductGrid from '../../components/partials/medicine-grid';
+import Sidebar from '../../components/partials/medicine/medicine-sidebar';
+import ProductGrid from '../../components/partials/medicine/medicine-grid';
 import { useState } from 'react';
 import Navbar from '../../components/partials/navbar';
 

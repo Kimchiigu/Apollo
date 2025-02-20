@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
-import { cn } from '../../lib/utils';
+import { cn } from '../../../lib/utils';
 
 interface SidebarProps {
   onCategorySelect: (category: string) => void;

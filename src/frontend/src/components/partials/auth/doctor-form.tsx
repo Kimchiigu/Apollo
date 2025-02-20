@@ -2,11 +2,11 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { format } from 'date-fns';
-import { useToast } from '../../hooks/use-toast';
-import { useAuth } from '../../hooks/use-auth-client';
+import { useToast } from '../../../hooks/use-toast';
+import { useAuth } from '../../../hooks/use-auth-client';
 import { backend_service_user } from '@/declarations/backend_service_user';
 
-import { Button } from '../../components/ui/button';
+import { Button } from '../../ui/button';
 import {
   Form,
   FormControl,
@@ -14,20 +14,50 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '../../components/ui/form';
-import { Input } from '../../components/ui/input';
-import { RadioGroup, RadioGroupItem } from '../../components/ui/radio-group';
-import { CalendarIcon } from '@radix-ui/react-icons';
-import { Calendar } from '../../components/ui/calendar';
+} from '../../ui/form';
+import { Input } from '../../ui/input';
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '../../components/ui/popover';
-import { cn } from '../../lib/utils';
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '../../ui/select';
+import { RadioGroup, RadioGroupItem } from '../../ui/radio-group';
+import { CalendarIcon } from '@radix-ui/react-icons';
+import { Calendar } from '../../ui/calendar';
+import { Popover, PopoverContent, PopoverTrigger } from '../../ui/popover';
+import { cn } from '../../../lib/utils';
 
-// Patient schema
-const patientFormSchema = z.object({
+const specializations = [
+  'Dokter Umum',
+  'Spesialis Anak',
+  'Spesialis Kulit',
+  'Spesialis Penyakit Dalam',
+  'Spesialis THT',
+  'Spesialis Kandungan',
+  'Dokter Hewan',
+  'Psikiater',
+  'Psikolog Klinis',
+  'Kesehatan Paru',
+  'Spesialis Mata',
+  'Seksologi & Spesialis Reproduksi Pria',
+  'Spesialis Gizi Klinik',
+  'Talk Therapy Clinic',
+  'Dokter Gigi',
+  'Perawatan Rambut',
+  'Spesialis Bedah',
+  'Spesialis Jantung',
+  'Spesialis Saraf',
+  'Laktasi',
+  'Program Hamil',
+  'Fisioterapi & Rehabilitasi',
+  'Medikolegal & Hukum Kesehatan',
+  'Pemeriksaan Lab',
+];
+
+// Doctor schema
+const doctorFormSchema = z.object({
   fullName: z
     .string()
     .min(2, { message: 'Full name must be at least 2 characters.' }),
@@ -40,24 +70,30 @@ const patientFormSchema = z.object({
     .min(5, { message: 'Address must be at least 5 characters.' }),
   dob: z.date({ required_error: 'Date of birth is required.' }),
   gender: z.enum(['male', 'female', 'other']),
+  registrationNumber: z
+    .string()
+    .min(1, { message: 'Registration number is required.' }),
+  specialization: z.string().min(1, { message: 'Specialization is required.' }),
 });
 
-export default function PatientForm() {
+export default function DoctorForm() {
   const { identity } = useAuth();
   const { toast } = useToast();
 
-  const form = useForm<z.infer<typeof patientFormSchema>>({
-    resolver: zodResolver(patientFormSchema),
+  const form = useForm<z.infer<typeof doctorFormSchema>>({
+    resolver: zodResolver(doctorFormSchema),
     defaultValues: {
       fullName: '',
       email: '',
       phoneNumber: '',
       address: '',
       gender: 'male',
+      registrationNumber: '',
+      specialization: '',
     },
   });
 
-  async function onSubmit(values: z.infer<typeof patientFormSchema>) {
+  async function onSubmit(values: z.infer<typeof doctorFormSchema>) {
     if (!identity?.getPrincipal) {
       toast({
         title: 'Error',
@@ -77,9 +113,9 @@ export default function PatientForm() {
         format(values.dob, 'yyyy-MM-dd'),
         values.gender,
         '',
-        'Patient',
-        [],
-        [],
+        'Doctor',
+        [values.specialization],
+        [values.registrationNumber],
       );
 
       if ('ok' in result) {
@@ -93,10 +129,10 @@ export default function PatientForm() {
         });
       }
     } catch (error) {
-      console.error('Patient registration failed:', error);
+      console.error('Doctor registration failed:', error);
       toast({
         title: 'Error',
-        description: 'Failed to register patient.',
+        description: 'Failed to register doctor.',
         variant: 'destructive',
       });
     }
@@ -113,7 +149,7 @@ export default function PatientForm() {
               <FormItem>
                 <FormLabel>Full Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="John Doe" {...field} />
+                  <Input placeholder="Dr. John Doe" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -129,7 +165,7 @@ export default function PatientForm() {
                 <FormControl>
                   <Input
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="doctor@example.com"
                     {...field}
                   />
                 </FormControl>
@@ -231,13 +267,55 @@ export default function PatientForm() {
               </FormItem>
             )}
           />
+
+          <FormField
+            control={form.control}
+            name="registrationNumber"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Registration Number</FormLabel>
+                <FormControl>
+                  <Input placeholder="123456" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="specialization"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Specialization</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select specialization" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {specializations.map((spec) => (
+                      <SelectItem key={spec} value={spec}>
+                        {spec}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
 
         <Button
           type="submit"
           className="w-full bg-blue-600 hover:bg-blue-700 text-white"
         >
-          Register as Patient
+          Register as Doctor
         </Button>
       </form>
     </Form>

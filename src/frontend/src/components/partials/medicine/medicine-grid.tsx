@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import ProductCard from '../component/ProductCard/ProductCard';
+import ProductCard from '../../component/ProductCard/ProductCard';
 
 interface Product {
   name: string;
