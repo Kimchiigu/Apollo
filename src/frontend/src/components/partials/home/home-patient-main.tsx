@@ -1,4 +1,4 @@
-export default function HomePatient() {
+export default function HomePatientMain() {
   return (
     <div>
       <div></div>

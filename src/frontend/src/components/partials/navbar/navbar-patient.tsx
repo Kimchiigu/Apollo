@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../ui/button';
-import { Menu, X } from 'lucide-react';
-import { useAuth } from '../../hooks/use-auth-client';
+import { Button } from '../../ui/button';
+import { Bot, LucideMessageSquareText, Menu, X } from 'lucide-react';
+import { useAuth } from '../../../hooks/use-auth-client';
+import NavbarProfileDropdown from './navbar-profile-dropdown';
 
 export default function NavbarPatient() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,11 +29,31 @@ export default function NavbarPatient() {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex space-x-4">
-          <Button variant="default" className="font-poppins">
-            Logout
+        <div className="hidden lg:flex space-x-4 gap-2 flex-row">
+          <Button
+            variant="default"
+            className="font-poppins"
+            onClick={() => navigate('/chat')}
+          >
+            <div className="flex flex-row gap-4 items-center justify-center">
+              <LucideMessageSquareText></LucideMessageSquareText>
+              Chat
+            </div>
+          </Button>
+
+          <Button
+            variant="default"
+            className="font-poppins"
+            onClick={() => navigate('/')}
+          >
+            <div className="flex flex-row gap-4 items-center justify-center">
+              <Bot></Bot>
+              Chatbot
+            </div>
           </Button>
         </div>
+
+        <NavbarProfileDropdown></NavbarProfileDropdown>
 
         {/* Mobile Menu Button */}
         <button
@@ -56,6 +77,7 @@ export default function NavbarPatient() {
         }`}
       >
         <div className="mt-4 flex flex-col space-y-2 text-center">
+          {/* TAMBAHIN BUTTON LAGI NNTI!!!!!!! */}
           <Button variant="default" className="font-poppins" onClick={logout}>
             Logout
           </Button>
