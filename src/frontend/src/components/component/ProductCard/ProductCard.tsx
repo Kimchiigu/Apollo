@@ -12,7 +12,7 @@ export default function ProductCard({
   priceRange,
 }: ProductCardProps) {
   return (
-    <div className="rounded-lg border border-gray-200 p-4">
+    <div className="rounded-lg border border-color-3/30 p-4 flex flex-col h-full">
       <div className="aspect-square relative mb-4">
         <img
           src={image || '/placeholder.svg'}
@@ -20,12 +20,19 @@ export default function ProductCard({
           className="w-full h-full object-contain"
         />
       </div>
-      <h3 className="font-medium mb-1">{name}</h3>
-      <p className="text-sm text-gray-600 mb-2">Per Strip</p>
-      <p className="text-sm text-gray-900 mb-4">
-        Rp{priceRange[0].toLocaleString()} - Rp{priceRange[1].toLocaleString()}
-      </p>
-      <Button className="w-full bg-blue-600 hover:bg-blue-700">Beli</Button>
+      <div className="flex-grow">
+        <h3 className="font-medium mb-1">{name}</h3>
+        <p className="text-sm text-color-3 mb-2">Per Strip</p>
+      </div>
+      <div className="mt-auto">
+        <p className="text-sm text-color-2/90 mb-4">
+          Rp{priceRange[0].toLocaleString()} - Rp
+          {priceRange[1].toLocaleString()}
+        </p>
+        <Button className="w-full bg-primary/90 hover:bg-primary">
+          Add to cart
+        </Button>
+      </div>
     </div>
   );
 }

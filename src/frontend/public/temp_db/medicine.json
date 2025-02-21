@@ -1,44 +1,44 @@
 [
   {
-    "name": "Obeslim 10 Kapsul",
+    "name": "Obeslim 10 Capsule",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRG9BXTX7q8I9C66UGUfrfKYNPE1kst4HRXA&s",
     "priceRange": [134300, 142100],
-    "category": "Obat",
+    "category": "Medicine",
     "description": "Diet medicine for weight management"
   },
   {
-    "name": "Vistat 120 mg 10 Kapsul",
+    "name": "Vistat 120 mg 10 Capsule",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0dGyWqS56WbLd8e3Lc59-CWwqt2rY2KUgIg&s",
     "priceRange": [121900, 121900],
-    "category": "Obat",
+    "category": "Medicine",
     "description": "Treatment for various conditions"
   },
   {
     "name": "Vitamin C 1000mg",
     "image": "https://res-4.cloudinary.com/dk0z4ums3/image/upload/c_scale,h_500,w_500/v1/production/pharmacy/products/1660122001_60f7f5ba1ef1133130010a40",
     "priceRange": [50000, 50000],
-    "category": "Suplemen",
+    "category": "Supplement",
     "description": "High dose vitamin C supplement"
   },
   {
     "name": "Nutrisi Diet Pack",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsGXubEJi2CA6QRbgMkjvQPeej-p05RFrdVQ&s",
     "priceRange": [250000, 250000],
-    "category": "Nutrisi & Detoks",
+    "category": "Nutrition & Detox",
     "description": "Complete nutrition pack for diet program"
   },
   {
     "name": "Redoxon Double Action",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnLeIJMqS3HJYaDfc5sl84Ju3HV1QYc7h2nA&s",
     "priceRange": [45000, 45000],
-    "category": "Suplemen",
+    "category": "Supplement",
     "description": "Vitamin C and Zinc supplement"
   },
   {
     "name": "Covid-19 Home Test Kit",
     "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQVaVlZ8wchKHBuFzjbAc3NdMdHPSmdmqo8VnB7Y2bfaYKxcCK3wV0UaDbKYehhGWmoltweua5HmynjKE1lPldBniGXBNuRkdzkNqm_msN8WHciaiHT8mr9GA&usqp=CAE",
     "priceRange": [75000, 75000],
-    "category": "Alat Penunjang",
+    "category": "Supporting Tools",
     "description": "Rapid test kit for Covid-19"
   }
 ]

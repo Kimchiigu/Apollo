@@ -41,7 +41,7 @@ export default function MedicineGrid({
 
   const filteredProducts = products.filter((product) => {
     const categoryMatch =
-      category === 'Weight Management' ? true : product.category === category;
+      category === 'All' ? true : product.category === category;
 
     const search = searchTerm.toLowerCase();
     const searchMatch =
@@ -55,7 +55,7 @@ export default function MedicineGrid({
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <div className="bg-blue-600 p-2 rounded-lg">
+        <div className="bg-primary p-2 rounded-lg">
           <img
             src="https://cdn-icons-png.flaticon.com/512/483/483462.png"
             alt="Medicine icon"
@@ -65,7 +65,7 @@ export default function MedicineGrid({
         <h2 className="text-xl font-semibold font-poppins">
           {category}
           {searchTerm && (
-            <span className="text-gray-500 text-base ml-2">
+            <span className="text-color-3 text-base ml-2">
               Search results for "{searchTerm}"
             </span>
           )}
@@ -84,7 +84,7 @@ export default function MedicineGrid({
           ))}
         </div>
       ) : (
-        <div className="text-center py-8 text-gray-500 font-poppins">
+        <div className="text-center py-8 text-color-3 font-poppins">
           {searchTerm ? (
             <>
               No products found matching "{searchTerm}" in {category}

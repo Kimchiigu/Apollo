@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Navbar from '../../components/partials/navbar';
 
 export default function MedicinePage() {
-  const [selectedCategory, setSelectedCategory] = useState('Obat');
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleCategorySelect = (category: string) => {
@@ -26,7 +26,7 @@ export default function MedicinePage() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-12 gap-6">
           {/* Sidebar */}
-          <div className="col-span-3">
+          <div className="col-span-2 md:col-span-3">
             <Sidebar
               onCategorySelect={handleCategorySelect}
               selectedCategory={selectedCategory}
@@ -34,7 +34,7 @@ export default function MedicinePage() {
           </div>
 
           {/* Product Grid */}
-          <div className="col-span-9">
+          <div className="col-span-10 md:col-span-9">
             <ProductGrid category={selectedCategory} searchTerm={searchTerm} />
           </div>
         </div>
