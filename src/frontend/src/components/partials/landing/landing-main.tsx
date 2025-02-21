@@ -1,6 +1,4 @@
-import { Label } from '../ui/label';
-import { motion } from 'framer-motion';
-import { Button } from '../ui/button';
+import { Button } from '../../ui/button';
 import {
   ArrowRight,
   MessageSquare,
