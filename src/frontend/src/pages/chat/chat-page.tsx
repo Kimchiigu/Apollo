@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import ChatInterface from '../../components/partials/chat/chat-interface';
 import ChatList from '../../components/partials/chat/chat-sidebar';
 import { Menu, X } from 'lucide-react';
+import Navbar from '../../components/partials/navbar/navbar';
 
 interface Message {
   id: number;
@@ -19,6 +20,8 @@ interface Chat {
   avatar: string;
   status: 'online' | 'offline' | 'typing';
   messages: Message[];
+  isPast: boolean;
+  specialization: string;
 }
 
 export default function ChatPage() {
@@ -88,66 +91,69 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Desktop Sidebar */}
-      <div className="hidden md:block w-1/3 max-w-md bg-white border-r">
-        <ChatList
-          chats={chats}
-          onChatSelect={handleChatSelect}
-          selectedChat={selectedChat}
-        />
-      </div>
-
-      {/* Mobile Sidebar */}
-      <div
-        className={`md:hidden fixed inset-y-0 left-0 transform ${
-          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } transition duration-200 ease-in-out z-30 w-64 bg-white shadow-lg`}
-      >
-        <div className="p-4 flex justify-between items-center border-b">
-          <h2 className="text-xl font-semibold">Chats</h2>
-          <button
-            onClick={() => setIsSidebarOpen(false)}
-            className="p-2 rounded-md hover:bg-gray-100"
-          >
-            <X className="h-6 w-6" />
-          </button>
+    <div className="flex flex-col h-screen bg-gray-100">
+      {/* <Navbar /> */}
+      <div className="flex flex-grow bg-gray-100">
+        {/* Desktop Sidebar */}
+        <div className="hidden md:block w-1/3 max-w-md bg-white border-r">
+          <ChatList
+            chats={chats}
+            onChatSelect={handleChatSelect}
+            selectedChat={selectedChat}
+          />
         </div>
-        <ChatList
-          chats={chats}
-          onChatSelect={handleChatSelect}
-          selectedChat={selectedChat}
-        />
-      </div>
 
-      {/* Chat Interface */}
-      <div className="flex-1 flex flex-col">
-        <header className="bg-white border-b md:hidden">
-          <div className="px-4 py-3 flex justify-between items-center">
+        {/* Mobile Sidebar */}
+        <div
+          className={`md:hidden fixed inset-y-0 left-0 transform ${
+            isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          } transition duration-200 ease-in-out z-30 w-64 bg-white shadow-lg`}
+        >
+          <div className="p-4 flex justify-between items-center border-b">
+            <h2 className="text-xl font-semibold">Chats</h2>
             <button
+              onClick={() => setIsSidebarOpen(false)}
               className="p-2 rounded-md hover:bg-gray-100"
-              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             >
-              <Menu className="h-6 w-6" />
+              <X className="h-6 w-6" />
             </button>
-            <h1 className="text-lg font-semibold">Chats</h1>
-            <div className="w-6"></div>
           </div>
-        </header>
+          <ChatList
+            chats={chats}
+            onChatSelect={handleChatSelect}
+            selectedChat={selectedChat}
+          />
+        </div>
 
-        <main className="flex-1 overflow-hidden">
-          {selectedChat ? (
-            <ChatInterface
-              chatId={selectedChat}
-              onMessageSend={handleMessageSend}
-              chats={chats}
-            />
-          ) : (
-            <div className="h-full flex items-center justify-center text-gray-500">
-              Select a chat to start messaging
+        {/* Chat Interface */}
+        <div className="flex-1 flex flex-col">
+          <header className="bg-white border-b md:hidden">
+            <div className="px-4 py-3 flex justify-between items-center">
+              <button
+                className="p-2 rounded-md hover:bg-gray-100"
+                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              >
+                <Menu className="h-6 w-6" />
+              </button>
+              <h1 className="text-lg font-semibold">Chats</h1>
+              <div className="w-6"></div>
             </div>
-          )}
-        </main>
+          </header>
+
+          <main className="flex-1 overflow-hidden">
+            {selectedChat ? (
+              <ChatInterface
+                chatId={selectedChat}
+                onMessageSend={handleMessageSend}
+                chats={chats}
+              />
+            ) : (
+              <div className="h-full flex items-center justify-center text-gray-500">
+                Select a chat to start messaging
+              </div>
+            )}
+          </main>
+        </div>
       </div>
     </div>
   );

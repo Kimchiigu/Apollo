@@ -1,9 +1,8 @@
 'use client';
 
-import { ArrowLeft, Trash2 } from 'lucide-react';
+import { ArrowLeft, Trash2, Edit3, ShoppingCart } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Edit3 } from 'lucide-react';
 import {
   Avatar,
   AvatarFallback,
@@ -38,6 +37,8 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import NavbarProfileDropdown from '../../components/partials/navbar/navbar-profile-dropdown';
+import Receipt from '../../components/partials/receipt/receipt';
 
 const healthData = [
   { month: 'Jan', physical: 65, mental: 75 },
@@ -57,20 +58,16 @@ const activityData = [
   { name: 'Sat', steps: 6500 },
   { name: 'Sun', steps: 7200 },
 ];
-import NavbarProfileDropdown from '../../components/partials/navbar/navbar-profile-dropdown';
+
+const purchasedMedicines = [
+  { id: 1, name: 'Paracetamol', quantity: 2, price: 5.99 },
+  { id: 2, name: 'Vitamin C', quantity: 1, price: 12.99 },
+  { id: 3, name: 'Ibuprofen', quantity: 1, price: 7.49 },
+];
 
 export default function ProfilePage() {
   const navigate = useNavigate();
-  const [profilePicture, setProfilePicture] = useState('');
-  const [icpBalance, setIcpBalance] = useState(123.45);
-
-  useEffect(() => {
-    const fetchProfilePicture = async () => {
-      setProfilePicture('https://github.com/shadcn.png');
-    };
-
-    fetchProfilePicture();
-  }, []);
+  const [icpBalance, setIcpBalance] = useState(123.45); // Simulated ICP balance
 
   return (
     <div className="min-h-screen bg-white">
@@ -94,10 +91,10 @@ export default function ProfilePage() {
         {/* Profile Header */}
         <Card className="border-none shadow-lg mb-8">
           <CardContent className="p-6">
-            <div className="flex items-start justify-between">
-              <div className="flex items-center gap-4">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between">
+              <div className="flex items-center gap-4 mb-4 md:mb-0">
                 <Avatar className="h-20 w-20 border-4 border-[#516AF5]">
-                  <AvatarImage src={profilePicture} />
+                  <AvatarImage src="/placeholder.svg" />
                   <AvatarFallback>DC</AvatarFallback>
                 </Avatar>
                 <div>
@@ -132,7 +129,7 @@ export default function ProfilePage() {
             </div>
 
             {/* Health Metrics */}
-            <div className="grid grid-cols-3 gap-4 mt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
               <div className="p-4 rounded-lg bg-gray-50">
                 <p className="text-sm text-gray-600">Height</p>
                 <p className="text-xl font-semibold mt-1">175 cm</p>
@@ -148,7 +145,6 @@ export default function ProfilePage() {
             </div>
           </CardContent>
         </Card>
-
         {/* Health Score Charts */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           <Card>
@@ -204,6 +200,8 @@ export default function ProfilePage() {
             </CardContent>
           </Card>
         </div>
+
+        {/* <Receipt /> */}
 
         {/* Account Actions */}
         <div className="space-y-4 mt-12">

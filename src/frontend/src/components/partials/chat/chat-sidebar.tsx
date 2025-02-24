@@ -18,6 +18,8 @@ interface Chat {
   avatar: string;
   status: string;
   messages: Message[];
+  isPast: boolean;
+  degree?: string;
 }
 
 interface ChatListProps {
@@ -32,6 +34,7 @@ export default function ChatList({
   selectedChat,
 }: ChatListProps) {
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeTab, setActiveTab] = useState<'current' | 'past'>('current');
 
   const formatTimestamp = (date: Date) => {
     const now = new Date();
@@ -52,16 +55,19 @@ export default function ChatList({
   };
 
   const getLastMessage = (chat: Chat) => {
-    // Sort msg
     return [...chat.messages].sort(
       (a, b) => b.timestamp.getTime() - a.timestamp.getTime(),
     )[0];
   };
 
   const filteredChats = chats
-    .filter((chat) =>
-      chat.name.toLowerCase().includes(searchQuery.toLowerCase()),
-    )
+    .filter((chat) => {
+      const matchesSearch = chat.name
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase());
+      const matchesTab = activeTab === 'current' ? !chat.isPast : chat.isPast;
+      return matchesSearch && matchesTab;
+    })
     .sort((a, b) => {
       const lastMessageA = getLastMessage(a);
       const lastMessageB = getLastMessage(b);
@@ -72,7 +78,7 @@ export default function ChatList({
 
   return (
     <div className="flex flex-col h-full">
-      <div className="p-4 border-b">
+      <div className="p-4 border-b space-y-4">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           <input
@@ -80,8 +86,30 @@ export default function ChatList({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search"
-            className="w-full pl-10 pr-4 py-2 bg-gray-100 border-0 rounded-md focus:ring-1 focus:ring-blue-400"
+            className="w-full pl-10 pr-4 py-2 bg-gray-100 border-0 rounded-md focus:ring-1 focus:ring-[#516AF5]"
           />
+        </div>
+        <div className="flex rounded-lg bg-gray-100 p-1">
+          <button
+            onClick={() => setActiveTab('current')}
+            className={`flex-1 px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+              activeTab === 'current'
+                ? 'bg-[#516AF5] text-white'
+                : 'text-gray-500 hover:text-gray-700'
+            }`}
+          >
+            Current
+          </button>
+          <button
+            onClick={() => setActiveTab('past')}
+            className={`flex-1 px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+              activeTab === 'past'
+                ? 'bg-[#516AF5] text-white'
+                : 'text-gray-500 hover:text-gray-700'
+            }`}
+          >
+            Past
+          </button>
         </div>
       </div>
       <div className="flex-1 overflow-y-auto">
@@ -97,8 +125,6 @@ export default function ChatList({
               }`}
               onClick={() => onChatSelect(chat.id)}
             >
-              {/* <Avatar src={chat.avatar} alt={chat.name} />
-               */}
               <Avatar>
                 <AvatarImage src="https://github.com/shadcn.png" />
                 <AvatarFallback>CN</AvatarFallback>
@@ -124,7 +150,7 @@ export default function ChatList({
                 </p>
               </div>
               {unreadCount > 0 && (
-                <span className="bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                <span className="bg-[#516AF5] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                   {unreadCount}
                 </span>
               )}

@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Larry Machigo",
+    "name": "Dapit",
     "avatar": "/placeholder.svg",
     "status": "online",
     "messages": [
@@ -33,11 +33,13 @@
         "timestamp": "2024-02-19T11:57:00Z",
         "read": true
       }
-    ]
+    ],
+    "isPast": true,
+    "specialization": "Skin Specialist"
   },
   {
     "id": 2,
-    "name": "Natalie Nora",
+    "name": "Valdog",
     "avatar": "/placeholder.svg",
     "status": "typing",
     "messages": [
@@ -55,11 +57,13 @@
         "timestamp": "2024-02-19T11:54:00Z",
         "read": true
       }
-    ]
+    ],
+    "isPast": false,
+    "specialization": "Dermatologist"
   },
   {
     "id": 3,
-    "name": "Design Team",
+    "name": "Chrizzto",
     "avatar": "/placeholder.svg",
     "status": "offline",
     "messages": [
@@ -77,6 +81,8 @@
         "timestamp": "2024-02-19T08:45:00Z",
         "read": true
       }
-    ]
+    ],
+    "isPast": false,
+    "specialization": "Physician"
   }
 ]

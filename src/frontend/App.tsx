@@ -11,6 +11,7 @@ import ChatPageDemo from './src/pages/demo/chat-page-demo';
 import ShopPage from './src/pages/shop/shop-page';
 import ProfilePage from './src/pages/profile/profile-page';
 import EditProfilePage from './src/pages/profile/edit-profile-page';
+import SettingsPage from './src/pages/setting/settings-page';
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -60,9 +61,13 @@ function App() {
       path: '/editprofile',
       element: <EditProfilePage />,
     },
+    {
+      path: '/settings',
+      element: <SettingsPage />,
+    },
   ];
 
-  return (
+  return (  
     <Router>
       <Routes>
         {routes.map((route, index) => (
