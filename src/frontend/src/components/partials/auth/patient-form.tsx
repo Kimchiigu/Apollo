@@ -21,6 +21,7 @@ import { CalendarIcon } from '@radix-ui/react-icons';
 import { Calendar } from '../../ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '../../ui/popover';
 import { cn } from '../../../lib/utils';
+import { useNavigate } from 'react-router-dom';
 
 // Patient schema
 const patientFormSchema = z.object({
@@ -41,6 +42,7 @@ const patientFormSchema = z.object({
 export default function PatientForm() {
   const { identity } = useAuth();
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof patientFormSchema>>({
     resolver: zodResolver(patientFormSchema),
@@ -82,6 +84,7 @@ export default function PatientForm() {
       if ('ok' in result) {
         toast({ title: 'Success', description: result.ok });
         form.reset();
+        await navigate('/home');
       } else {
         toast({
           title: 'Error',

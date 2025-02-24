@@ -9,6 +9,7 @@ import LandingPage from './src/pages/landing/landing-page';
 import MedicinePage from './src/pages/medicine/medicine-page';
 import ChatPageDemo from './src/pages/demo/chat-page-demo';
 import ShopPage from './src/pages/shop/shop-page';
+import PaymentPage from './src/pages/payment/payment-page';
 import ProfilePage from './src/pages/profile/profile-page';
 import EditProfilePage from './src/pages/profile/edit-profile-page';
 import SettingsPage from './src/pages/setting/settings-page';
@@ -67,7 +68,7 @@ function App() {
     },
   ];
 
-  return (  
+  return (
     <Router>
       <Routes>
         {routes.map((route, index) => (

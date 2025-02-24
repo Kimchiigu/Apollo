@@ -29,6 +29,7 @@ import { Calendar } from '../../ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '../../ui/popover';
 import { cn } from '../../../lib/utils';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Doctor schema
 const doctorFormSchema = z.object({
@@ -58,6 +59,7 @@ interface Specialization {
 export default function DoctorForm() {
   const { identity } = useAuth();
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const [specializations, setSpecializations] = useState<Specialization[]>([]);
 
@@ -119,6 +121,7 @@ export default function DoctorForm() {
       if ('ok' in result) {
         toast({ title: 'Success', description: result.ok });
         form.reset();
+        await navigate('/home');
       } else {
         toast({
           title: 'Error',
