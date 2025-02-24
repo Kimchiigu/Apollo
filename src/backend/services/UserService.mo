@@ -8,9 +8,9 @@ import Array "mo:base/Array";
 import List "mo:base/List";
 import Option "mo:base/Option";
 import Iter "mo:base/Iter";
-import UserModel "../model/UserModel";
-import DoctorModel "../model/DoctorModel";
-import PatientModel "../model/PatientModel";
+import UserModel "../model/user/UserModel";
+import DoctorModel "../model/user/DoctorModel";
+import PatientModel "../model/user/PatientModel";
 
 actor UserService {
     type User = UserModel.User;

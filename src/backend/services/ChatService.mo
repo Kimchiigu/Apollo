@@ -6,7 +6,7 @@ import Option "mo:base/Option";
 import Nat "mo:base/Nat";
 import Blob "mo:base/Blob";
 import Int "mo:base/Int";
-import ChatModel "../model/ChatModel";
+import ChatModel "../model/chat/ChatModel";
 
 actor ChatService {
 

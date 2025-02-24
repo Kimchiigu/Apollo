@@ -17,27 +17,27 @@ export default function MedicineSidebar({
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Sidebar toggle state
 
   const categories = {
-    weightManagement: 'Weight Management',
-    obat: 'Obat',
-    nutrisiSuplemen: {
-      main: 'Nutrisi & Suplemen',
-      sub: ['Suplemen', 'Nutrisi & Detoks'],
+    all: 'All',
+    medicine: 'Medicine',
+    nutritionSupplement: {
+      main: 'Nutrition & Supplement',
+      sub: ['Supplement', 'Nutrition & Detox'],
     },
-    alatPenunjang: 'Alat Penunjang',
+    supportingTools: 'Supporting Tools',
   };
 
   return (
     <div>
       {/* Mobile Sidebar Toggle Button */}
-      <div className="md:hidden p-4">
+      <div className="md:hidden">
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="items-center gap-2 text-blue-600"
+          className="items-center gap-2"
         >
           {isSidebarOpen ? (
             <X className="w-6 h-6" />
           ) : (
-            <Menu className="w-10 h-10" />
+            <Menu className="w-10 h-10 bg-transparent" />
           )}
         </button>
       </div>
@@ -45,60 +45,62 @@ export default function MedicineSidebar({
       {/* Sidebar Content - Hidden on Mobile unless open */}
       <div
         className={cn(
-          'absolute z-10 top-0 left-0 w-1/2 min-h-screen bg-white shadow-lg transition-transform duration-300 md:relative md:block md:w-full',
+          'z-10 top-0 left-0 w-1/2 fixed bg-background shadow-lg transition-transform duration-300 md:relative md:block md:w-full',
           isSidebarOpen
-            ? 'translate-x-0'
+            ? 'translate-x-0 min-h-screen'
             : '-translate-x-full md:translate-x-0 hidden',
         )}
       >
-        <div className="rounded-lg border border-gray-200 font-poppins p-4">
+        <div className="rounded-lg border border-color-3 font-poppins p-4">
           {isSidebarOpen ? (
             <button
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              className="flex items-center gap-2 text-blue-600 ml-auto"
+              className="flex items-center gap-2 ml-auto"
             >
               {isSidebarOpen ? (
-                <X className="w-6 h-6 text-black" />
+                <X className="w-6 h-6 text-color-2" />
               ) : (
                 <Menu className="w-6 h-6" />
               )}
             </button>
           ) : null}
 
-          <button
-            onClick={() => onCategorySelect(categories.weightManagement)}
-            className={cn(
-              'w-full bg-gray-50 p-4 font-medium text-left hover:bg-gray-100 transition-colors',
-              selectedCategory === categories.weightManagement &&
-                'text-blue-600',
-            )}
-          >
-            {categories.weightManagement}
-          </button>
-          <div className="divide-y divide-gray-200">
+          <div className="divide-y divide-color-3 text-color-2">
             <button
-              onClick={() => onCategorySelect(categories.obat)}
+              onClick={() => onCategorySelect(categories.all)}
               className={cn(
-                'w-full p-4 text-left hover:bg-gray-50 transition-colors',
-                selectedCategory === categories.obat &&
-                  'text-blue-600 font-medium',
+                'w-full p-4 text-left hover:bg-color-3/20 transition-colors',
+                selectedCategory === categories.all &&
+                  'text-primary font-medium',
               )}
             >
-              {categories.obat}
+              {categories.all}
+            </button>
+
+            <button
+              onClick={() => onCategorySelect(categories.medicine)}
+              className={cn(
+                'w-full p-4 text-left hover:bg-color-3/20 transition-colors',
+                selectedCategory === categories.medicine &&
+                  'text-primary font-medium',
+              )}
+            >
+              {categories.medicine}
             </button>
 
             <div>
               <button
                 onClick={() => setIsNutrisiOpen(!isNutrisiOpen)}
-                className="text-start w-full p-4 flex justify-between items-center hover:bg-gray-50 transition-colors"
+                className="text-start w-full p-4 flex justify-between items-center hover:bg-color-3/20 transition-colors"
               >
                 <span
                   className={cn(
-                    selectedCategory.includes('Nutrisi') &&
-                      'text-blue-600 font-medium',
+                    (selectedCategory.includes('Nutrition') ||
+                      selectedCategory.includes('Supplement')) &&
+                      'text-primary font-medium',
                   )}
                 >
-                  {categories.nutrisiSuplemen.main}
+                  {categories.nutritionSupplement.main}
                 </span>
                 <ChevronDown
                   className={cn(
@@ -114,13 +116,13 @@ export default function MedicineSidebar({
                   isNutrisiOpen ? 'max-h-40' : 'max-h-0',
                 )}
               >
-                {categories.nutrisiSuplemen.sub.map((item) => (
+                {categories.nutritionSupplement.sub.map((item) => (
                   <button
                     key={item}
                     onClick={() => onCategorySelect(item)}
                     className={cn(
-                      'w-full p-4 pl-8 text-left hover:bg-gray-50 transition-colors',
-                      selectedCategory === item && 'text-blue-600 font-medium',
+                      'w-full p-4 pl-8 text-left hover:bg-color-3/20 transition-colors',
+                      selectedCategory === item && 'text-primary font-medium',
                     )}
                   >
                     {item}
@@ -130,14 +132,14 @@ export default function MedicineSidebar({
             </div>
 
             <button
-              onClick={() => onCategorySelect(categories.alatPenunjang)}
+              onClick={() => onCategorySelect(categories.supportingTools)}
               className={cn(
-                'w-full p-4 text-left hover:bg-gray-50 transition-colors',
-                selectedCategory === categories.alatPenunjang &&
-                  'text-blue-600 font-medium',
+                'w-full p-4 text-left hover:bg-color-3/20 transition-colors',
+                selectedCategory === categories.supportingTools &&
+                  'text-primary font-medium',
               )}
             >
-              {categories.alatPenunjang}
+              {categories.supportingTools}
             </button>
           </div>
         </div>
