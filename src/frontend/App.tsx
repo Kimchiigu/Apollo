@@ -9,6 +9,8 @@ import LandingPage from './src/pages/landing/landing-page';
 import MedicinePage from './src/pages/medicine/medicine-page';
 import ChatPageDemo from './src/pages/demo/chat-page-demo';
 import ShopPage from './src/pages/shop/shop-page';
+import ProfilePage from './src/pages/profile/profile-page';
+import EditProfilePage from './src/pages/profile/edit-profile-page';
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -49,6 +51,14 @@ function App() {
     {
       path: '/shop',
       element: <ShopPage />,
+    },
+    {
+      path: '/profile',
+      element: <ProfilePage />,
+    },
+    {
+      path: '/editprofile',
+      element: <EditProfilePage />,
     },
   ];
 

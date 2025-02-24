@@ -69,7 +69,7 @@ export default function ChatInterface({
   return (
     <div className="flex flex-col h-full bg-gray-100">
       {/* #5B21B6 */}
-      <div className="bg-[#516AF5] p-4 flex items-center justify-between">
+      <div className="bg-[ ] p-4 flex items-center justify-between">
         <div className="flex items-center space-x-3">
           {/* <Avatar src={currentChat.avatar} alt={currentChat.name} />
            */}
@@ -124,7 +124,7 @@ export default function ChatInterface({
             placeholder="Type a message..."
             className="flex-1 rounded-full bg-blue-50 border-0 focus:ring-1 focus:ring-blue-400 px-4 py-2"
           />
-          <button className="rounded-full bg-blue-50 hover:bg-blue-100 text-blue-900 p-2">
+          <button className="rounded-full bg-[#516AF5]-50 hover:bg-blue-100 text-blue-900 p-2">
             <Paperclip className="h-5 w-5" />
           </button>
           <button
