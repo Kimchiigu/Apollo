@@ -93,7 +93,7 @@ export default function ChatList({
             <div
               key={chat.id}
               className={`flex items-center space-x-4 p-4 hover:bg-gray-50 cursor-pointer ${
-                selectedChat === chat.id ? 'bg-purple-50' : ''
+                selectedChat === chat.id ? 'bg-blue-50' : ''
               }`}
               onClick={() => onChatSelect(chat.id)}
             >
