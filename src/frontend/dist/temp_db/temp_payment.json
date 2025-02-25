@@ -1,0 +1,29 @@
+{
+    "transactionType": "product",
+    "doctor": {
+      "name": "Dr. John Doe",
+      "image": "https://www.example.com/doctor-profile.jpg",
+      "specialty": "General Practitioner",
+      "consultationFee": 250000,
+      "duration": "30 minutes"
+    },
+    "products": [
+      {
+        "name": "Vitamin C 1000mg",
+        "image": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1/production/pharmacy/products/1660122001_60f7f5ba1ef1133130010a40",
+        "price": 50000,
+        "category": "Supplement",
+        "description": "High dose vitamin C supplement",
+        "quantity": 2
+      },
+      {
+        "name": "Paracetamol 500mg",
+        "image": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1/production/pharmacy/products/1660122001_60f7f5ba1ef1133130010b50",
+        "price": 30000,
+        "category": "Pain Relief",
+        "description": "Effective fever and pain reducer",
+        "quantity": 1
+      }
+    ]
+  }
+  

@@ -66,6 +66,10 @@ function App() {
       path: '/settings',
       element: <SettingsPage />,
     },
+    {
+      path: '/payment',
+      element: <PaymentPage />
+    }
   ];
 
   return (
